@@ -1,0 +1,13 @@
+.root {
+  svg {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  svg + svg {
+    margin-left: 27px;
+  }
+}

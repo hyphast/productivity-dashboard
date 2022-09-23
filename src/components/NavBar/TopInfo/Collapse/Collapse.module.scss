@@ -1,0 +1,27 @@
+@import "../../../../commonStyles/variables";
+
+.root {
+  display: flex;
+  cursor: pointer;
+  position: relative;
+  align-self: center;
+  justify-self: center;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  .arrow {
+    width: 10px;
+    height: 10px;
+    border: 2px solid $secondary;
+    border-right: 0;
+    border-top: 0;
+    transform: rotate(45deg);
+  }
+
+  .secondArrow {
+    position: absolute;
+    left: 6px;
+  }
+}

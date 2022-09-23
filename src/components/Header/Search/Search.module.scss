@@ -1,0 +1,31 @@
+@import '../../../commonStyles/variables';
+
+.root {
+  width: 100%;
+  position: relative;
+
+  .findIcon {
+    position: absolute;
+    top: 19px;
+    left: 69px;
+  }
+
+  .search {
+    margin: 8px 0 0 46px;
+    width: 80%;
+    height: 44px;
+    border: 0;
+    padding: 11px 36px 11px 56px;
+    border-radius: 5px;
+    background: #F5F5F5;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+    caret-color: #5030E5;
+
+    &:focus {
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+

@@ -1,0 +1,33 @@
+.root {
+  display: grid;
+  grid-template-columns: 225px 1fr;
+  grid-template-rows: 88px 1fr;
+  row-gap: 1px;
+  column-gap: 1px;
+  //border: 3px solid black;
+
+  .header {
+    grid-column: 2;
+    grid-row: 1;
+    //border-bottom: 1px solid #DBDBDB;
+  }
+
+  .topInfo {
+    grid-column: 1;
+    grid-row: 1;
+    //border-bottom: 1px solid #DBDBDB;
+    //border-right: 1px solid #DBDBDB;
+  }
+
+  .navbar {
+    grid-column: 1;
+    grid-row: 2;
+    //border-right: 1px solid #DBDBDB;
+  }
+
+  .content {
+    grid-column: 2;
+    grid-row: 2;
+    //border: 2px solid yellow;
+  }
+}

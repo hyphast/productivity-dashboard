@@ -1,0 +1,30 @@
+@import "commonStyles/variables";
+@import "commonStyles/libs/normalize";
+
+body {
+  background-color: $background;
+}
+
+.wrapper {
+  width: calc(100vw - 50px);
+  height: 100%;
+  margin: 0 auto;
+  //max-
+}
+
+.delimiters {
+  position: absolute;
+  border-bottom: 1px solid #DBDBDB;
+  width: 100%;
+  height: 88px;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    border-right: 1px solid #DBDBDB;
+    width: 250px;
+    height: 100vh;
+  }
+}
