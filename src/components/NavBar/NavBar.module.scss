@@ -1,3 +1,43 @@
-.root {
+@import '../../commonStyles/variables';
 
+.root {
+  margin-top: 35px;
+
+  .myProjectsHeader {
+    display: flex;
+
+    h4 {
+      color: $secondary;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 15px;
+    }
+
+    svg {
+      margin-left: 100px;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.1);
+        :nth-child(1), :nth-child(2)   {
+          stroke: #5030e5;
+        }
+      }
+    }
+  }
+  .projectsContainer {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+
+    button {
+      width: 225px;
+      height: 45px;
+    }
+
+    button + button {
+      margin-top: 10px;
+    }
+  }
 }

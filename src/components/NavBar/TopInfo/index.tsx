@@ -1,13 +1,20 @@
-import React, { FC } from 'react'
+import React, { Dispatch, FC, SetStateAction } from 'react'
 import { Collapse } from './Collapse'
 import { Logo } from './Logo'
 import styles from './TopInfo.module.scss'
 
-export const TopInfo: FC = () => {
+type TTopInfo = {
+  setNavbarVisible: Dispatch<SetStateAction<boolean>>
+  navbarVisible: boolean
+}
+export const TopInfo: FC<TTopInfo> = ({ setNavbarVisible, navbarVisible }) => {
   return (
     <div className={styles.root}>
       <Logo />
-      <Collapse />
+      <Collapse
+        setNavbarVisible={setNavbarVisible}
+        navbarVisible={navbarVisible}
+      />
     </div>
   )
 }

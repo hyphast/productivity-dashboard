@@ -1,12 +1,23 @@
-import React, { FC } from 'react'
+import React, { Dispatch, FC, SetStateAction } from 'react'
 import cn from 'classnames'
 import styles from './Collapse.module.scss'
 
-export const Collapse: FC = () => {
+type TCollapse = {
+  setNavbarVisible: Dispatch<SetStateAction<boolean>>
+  navbarVisible: boolean
+}
+export const Collapse: FC<TCollapse> = ({
+  setNavbarVisible,
+  navbarVisible,
+}) => {
   return (
-    <div className={styles.root}>
+    <button
+      type="button"
+      onClick={() => setNavbarVisible((prev) => !prev)}
+      className={cn(styles.root, { [styles.expand]: !navbarVisible })}
+    >
       <div className={styles.arrow} />
       <div className={cn(styles.arrow, styles.secondArrow)} />
-    </div>
+    </button>
   )
 }
