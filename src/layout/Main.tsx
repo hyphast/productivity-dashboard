@@ -9,7 +9,7 @@ import styles from './Main.module.scss'
 export const Main: FC = () => {
   const [navbarVisible, setNavbarVisible] = useState(true)
   return (
-    <div className={cn(styles.root, { [styles.fullWidth]: !navbarVisible })}>
+    <div className={styles.root}>
       <div className={styles.header}>
         <Header />
       </div>
