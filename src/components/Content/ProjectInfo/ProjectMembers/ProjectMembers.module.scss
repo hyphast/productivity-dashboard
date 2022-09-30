@@ -1,0 +1,94 @@
+.root {
+  //display: flex;
+
+  .membersContainer {
+    display: flex;
+    align-items: center;
+
+    svg {
+      cursor: pointer;
+    }
+
+    .addMember {
+      margin: 0 14px 0 9px;
+      color: #5030E5;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+      text-transform: capitalize;
+    }
+
+    .members {
+      display: flex;
+
+      .memberItem {
+        width: 39px;
+        height: 39px;
+        border: 1px solid white;
+        border-radius: 50%;
+      }
+
+      .memberItem + .memberItem {
+        position: relative;
+        left: -9px;
+      }
+
+      .memberItem:last-child {
+        left: -17px;
+      }
+
+      .restMembers {
+        background: #F4D7DA;
+        text-align: center;
+        color: #D25B68;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 18px;
+        text-transform: capitalize;
+        padding-top: 9px;
+      }
+    }
+  }
+
+  .afterMembers {
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+
+    .delimiter {
+      margin: 0 19px;
+      background: #787486;
+      height: 27px;
+    }
+
+    .shareBtn {
+      padding: 13px 15px;
+      border: 1px solid #787486;
+      border-radius: 10px;
+      color: #787486;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+      text-transform: capitalize;
+      cursor: pointer;
+
+      svg {
+        position: relative;
+        top: 3px;
+        margin-right: 8px;
+      }
+    }
+
+    .view {
+      width: 40px;
+      height: 40px;
+      border-radius: 5px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .activeView {
+      background: #5030E5;
+    }
+  }
+}

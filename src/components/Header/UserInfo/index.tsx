@@ -1,5 +1,5 @@
 import React from 'react'
-import avatarImg from '../../../assets/img/ava.png'
+import avatarImg from '../../../assets/img/ava.jpg'
 import styles from './UserInfo.module.scss'
 
 export const UserInfo = () => {

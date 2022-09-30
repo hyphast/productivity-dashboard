@@ -1,0 +1,19 @@
+.root {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: 1fr;
+
+  .projectTitle {
+    width: 355px;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .projectMembers {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    align-self: center;
+  }
+}
+
