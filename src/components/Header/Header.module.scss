@@ -8,4 +8,10 @@
   .notifications {
     align-self: center;
   }
+
+  .userInfo {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
 }

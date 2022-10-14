@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react'
-import { IndicatorColorEnum, ProjectItem } from './ProjectItem'
+import { ProjectItem } from './ProjectItem'
+import { IndicatorColorEnum } from '../commonComponents/ColoredCircle'
 import styles from './NavBar.module.scss'
 
 const myProjects = [

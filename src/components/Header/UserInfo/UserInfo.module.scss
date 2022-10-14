@@ -2,7 +2,7 @@
 
 .root {
   display: grid;
-  grid-template-columns: 1.5fr 0.6fr 0.5fr;
+  grid-template-columns: 170px 0.6fr 0.5fr;
   grid-template-rows: 1fr 1fr;
   padding-top: 8px;
 
@@ -30,7 +30,7 @@
     align-self: center;
     justify-self: center;
     position: relative;
-    top: 9px;
+    //top: 9px;
     width: 38px;
     height: 38px;
     border-radius: 50%;
@@ -41,8 +41,8 @@
     grid-row: 1 / 2;
     align-self: center;
     position: relative;
-    top: 12px;
-    right: 7px;
+    top: 5px;
+    right: 5px;
 
     &:hover {
       cursor: pointer;

@@ -46,6 +46,7 @@ export const ProjectMembers = () => {
         <div className={styles.members}>
           {membersList.map((member) => (
             <img
+              key={member.photoUrl}
               className={styles.memberItem}
               src={member.photoUrl}
               alt="member avatar"

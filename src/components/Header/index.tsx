@@ -11,7 +11,9 @@ export const Header: FC = () => {
       <div className={styles.notifications}>
         <Notifications />
       </div>
-      <UserInfo />
+      <div className={styles.userInfo}>
+        <UserInfo />
+      </div>
     </div>
   )
 }

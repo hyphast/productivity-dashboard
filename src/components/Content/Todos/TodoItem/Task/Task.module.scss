@@ -1,0 +1,45 @@
+.root {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+
+  .taskHeader {
+    display: flex;
+    position: relative;
+    margin-bottom: 9px;
+
+    .priority {
+      background: rgba(223, 168, 116, 20%);
+      border-radius: 5px;
+      padding: 5px;
+
+      span {
+        font-weight: 500;
+        font-size: 12px;
+        color: #D58D49;
+      }
+    }
+
+    .dots {
+      position: absolute;
+      top: -7px;
+      right: 7px;
+    }
+  }
+
+  .taskMain {
+    h5 {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 22px;
+      margin-bottom: 10px;
+    }
+
+    .desc {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 15px;
+      color: #787486;
+    }
+  }
+}

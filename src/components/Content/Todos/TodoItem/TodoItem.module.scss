@@ -1,0 +1,51 @@
+.root {
+  padding: 24px 20px 24px 30px;
+  background: #F5F5F5;
+  border-radius: 15px;
+  //height: 100%;
+
+  .todoHeader {
+    display: flex;
+    position: relative;
+    margin-bottom: 40px;
+
+    .circle {
+      position: relative;
+      top: 5px;
+      right: 9px;
+    }
+
+    .todoTitle {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      max-width: 200px;
+
+      h4 {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+      }
+    }
+
+    .count {
+      margin-left: 13px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(219, 219, 219, 1);
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 19px;
+      color: #625F6D;
+      text-align: center;
+    }
+  }
+
+  .delimiter {
+    width: 100%;
+    position: absolute;
+    top: 35px;
+    left: -8px;
+  }
+}
