@@ -9,14 +9,33 @@
     margin-bottom: 9px;
 
     .priority {
-      background: rgba(223, 168, 116, 20%);
       border-radius: 5px;
       padding: 5px;
 
       span {
         font-weight: 500;
         font-size: 12px;
+      }
+    }
+    .low {
+      background: rgba(223, 168, 116, 20%);
+
+      span {
         color: #D58D49;
+      }
+    }
+    .high {
+      background: rgba(216, 114, 125, 10%);
+
+      span {
+        color: #D8727D;
+      }
+    }
+    .completed {
+      background: rgba(131, 194, 157, 20%);
+
+      span {
+        color: #68B266;
       }
     }
 

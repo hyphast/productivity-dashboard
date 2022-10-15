@@ -73,6 +73,11 @@
       text-transform: capitalize;
       cursor: pointer;
 
+      &:hover {
+        color: #5030e5;
+        transform: scale(1.03);
+      }
+
       svg {
         position: relative;
         top: 3px;
@@ -88,8 +93,17 @@
       cursor: pointer;
     }
 
+    .firstView {
+      svg {
+        stroke: #787486;
+      }
+    }
+
     .activeView {
       background: #5030E5;
+      svg {
+        fill: white;
+      }
     }
   }
 }

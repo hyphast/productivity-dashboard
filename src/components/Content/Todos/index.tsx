@@ -1,25 +1,25 @@
 import React from 'react'
 import { IndicatorColorEnum } from '../../commonComponents/ColoredCircle'
 import { TodoItem } from './TodoItem'
-import { TTaskData, TTodo } from './types/types'
+import { PriorityEnum, StageEnum, TTaskData, TTodo } from './types/types'
 import styles from './Todos.module.scss'
 
 const todosSkeleton: TTodo[] = [
   {
     id: 0,
-    status: 'To Do',
+    stage: StageEnum.ToDo,
     indicatorColor: IndicatorColorEnum.purple,
-    todosCount: 2,
+    todosCount: 1,
   },
   {
     id: 1,
-    status: 'On Progress',
+    stage: StageEnum.OnProgress,
     indicatorColor: IndicatorColorEnum.orange,
-    todosCount: 4,
+    todosCount: 1,
   },
   {
     id: 2,
-    status: 'Done',
+    stage: StageEnum.Done,
     indicatorColor: IndicatorColorEnum.blue,
     todosCount: 1,
   },
@@ -27,22 +27,22 @@ const todosSkeleton: TTodo[] = [
 const taskData: TTaskData[] = [
   {
     id: 0,
-    stage: 0,
-    priority: 'Low',
+    stage: StageEnum.ToDo,
+    priority: PriorityEnum.Low,
     title: 'Brainstorming',
     desc: 'Brainstorming brings team members diverse experience into play.',
   },
   {
     id: 1,
-    stage: 1,
-    priority: 'High',
+    stage: StageEnum.OnProgress,
+    priority: PriorityEnum.High,
     title: 'Research',
     desc: 'User research helps you to create an optimal product for users.',
   },
   {
     id: 2,
-    stage: 2,
-    priority: 'Completed',
+    stage: StageEnum.Done,
+    priority: PriorityEnum.Completed,
     title: 'Design System',
     desc: 'It just needs to adapt the UI from what you did before ',
   },
@@ -53,7 +53,7 @@ export const Todos = () => {
       {todosSkeleton.map((todo) => (
         <TodoItem
           key={todo.id}
-          status={todo.status}
+          stage={todo.stage}
           indicatorColor={todo.indicatorColor}
           todosCount={todo.todosCount}
           taskData={taskData}

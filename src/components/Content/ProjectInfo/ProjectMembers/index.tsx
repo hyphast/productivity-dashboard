@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC, useState } from 'react'
 import cn from 'classnames'
 import styles from './ProjectMembers.module.scss'
 import avatarImg2 from '../../../../assets/img/ava2.jpg'
@@ -13,7 +13,8 @@ const membersList = [
   },
 ]
 
-export const ProjectMembers = () => {
+export const ProjectMembers: FC = () => {
+  const [view, setView] = useState(true)
   return (
     <div className={styles.root}>
       <div className={styles.membersContainer}>
@@ -84,7 +85,13 @@ export const ProjectMembers = () => {
           Share
         </button>
         <hr className={styles.delimiter} />
-        <button className={cn(styles.view, styles.activeView)} type="button">
+        <button
+          onClick={() => setView(true)}
+          className={cn(styles.view, styles.firstView, {
+            [styles.activeView]: view,
+          })}
+          type="button"
+        >
           <svg
             width="20"
             height="20"
@@ -102,7 +109,11 @@ export const ProjectMembers = () => {
             />
           </svg>
         </button>
-        <button className={styles.view} type="button">
+        <button
+          onClick={() => setView(false)}
+          className={cn(styles.view, { [styles.activeView]: !view })}
+          type="button"
+        >
           <svg
             width="21"
             height="21"

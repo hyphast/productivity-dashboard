@@ -1,15 +1,25 @@
 import { IndicatorColorEnum } from '../../../commonComponents/ColoredCircle'
 
+export enum StageEnum {
+  'ToDo',
+  'OnProgress',
+  'Done',
+}
 export type TTodo = {
   id: number
-  status: string
+  stage: StageEnum
   indicatorColor: IndicatorColorEnum
   todosCount: number
 }
+export enum PriorityEnum {
+  'Low',
+  'High',
+  'Completed',
+}
 export type TTaskData = {
   id: number
-  stage: 0 | 1 | 2
-  priority: 'Low' | 'High' | 'Completed'
+  stage: StageEnum
+  priority: PriorityEnum
   title: string
   desc: string
 }
