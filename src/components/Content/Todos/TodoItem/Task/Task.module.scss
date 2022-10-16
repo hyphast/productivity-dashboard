@@ -2,6 +2,8 @@
   background: white;
   padding: 20px;
   border-radius: 10px;
+  margin-bottom: 10px;
+  cursor: grab;
 
   .taskHeader {
     display: flex;
@@ -54,6 +56,14 @@
       margin-bottom: 10px;
     }
 
+    .date {
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 15px;
+      color: rgba(0, 0, 0, 70%);
+      margin-bottom: 5px;
+    }
+
     .desc {
       font-weight: 400;
       font-size: 12px;
@@ -61,4 +71,19 @@
       color: #787486;
     }
   }
+
+  .taskFooter {
+    .ownerAvatar {
+      position: relative;
+      top: 10px;
+      border: 1px solid white;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.dragging {
+  opacity: 0.5;
 }

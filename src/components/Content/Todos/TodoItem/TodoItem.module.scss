@@ -3,6 +3,7 @@
   background: #F5F5F5;
   border-radius: 15px;
   //height: 100%;
+  position: relative;
 
   .todoHeader {
     display: flex;
@@ -39,6 +40,17 @@
       line-height: 19px;
       color: #625F6D;
       text-align: center;
+    }
+
+    .addTaskIcon {
+      position: absolute;
+      right: 0;
+      top: -2px;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 
