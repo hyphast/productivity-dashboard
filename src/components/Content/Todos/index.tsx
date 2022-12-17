@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
-import { IndicatorColorEnum } from '../../commonComponents/ColoredCircle'
+import { IndicatorColorEnum } from '../../common/ColoredCircle'
 import { TodoItem } from './TodoItem'
 import { PriorityEnum, StageEnum, TTaskData, TTodo } from './types/types'
 import styles from './Todos.module.scss'

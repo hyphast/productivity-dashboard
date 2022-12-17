@@ -1,11 +1,8 @@
 import React, { FC } from 'react'
 import cn from 'classnames'
-import {
-  ColoredCircle,
-  IndicatorColorEnum,
-} from '../../commonComponents/ColoredCircle'
+import { ColoredCircle, IndicatorColorEnum } from '../../common/ColoredCircle'
 import styles from './ProjectItem.module.scss'
-import { Dots } from '../../commonComponents/Dots'
+import { Dots } from '../../common/Dots'
 
 export type TProjectItem = {
   name: string

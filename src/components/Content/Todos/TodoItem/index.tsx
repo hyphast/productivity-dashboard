@@ -3,7 +3,7 @@ import { useDrop } from 'react-dnd'
 import {
   ColoredCircle,
   IndicatorColorEnum,
-} from '../../../commonComponents/ColoredCircle'
+} from '../../../common/ColoredCircle'
 import { ItemTypes, StageEnum, TTaskData } from '../types/types'
 import { Task } from './Task'
 import styles from './TodoItem.module.scss'

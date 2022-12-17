@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import cn from 'classnames'
 import { useDrag } from 'react-dnd'
-import { Dots } from '../../../../commonComponents/Dots'
+import { Dots } from '../../../../common/Dots'
 import { ItemTypes, PriorityEnum, TTaskData } from '../../types/types'
 // import dragPreviewImg from '../../../../../assets/img/img.png'
 import photoImg from '../../../../../assets/img/ava.jpg'

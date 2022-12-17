@@ -37,6 +37,7 @@
     "jsx-a11y/click-events-have-key-events": "warn",
     "spaced-comment": "off",
     "@typescript-eslint/no-unused-vars": "warn",
-    "no-else-return": "warn"
+    "no-else-return": "warn",
+    "import/no-extraneous-dependencies": "warn"
   }
 }
