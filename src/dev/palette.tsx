@@ -1,5 +1,6 @@
 import React from 'react'
-import { Category, Component, Variant, Palette } from '@react-buddy/ide-toolbox'
+import { Category, Component, Palette, Variant } from '@react-buddy/ide-toolbox'
+import { Search } from '../components/common/Input/Search'
 
 export const PaletteTree = () => (
   <Palette>
@@ -14,6 +15,13 @@ export const PaletteTree = () => (
         <Variant>
           {/* eslint-disable-next-line react/button-has-type */}
           <button>Button</button>
+        </Variant>
+      </Component>
+    </Category>
+    <Category name="Components">
+      <Component name="Input">
+        <Variant name="Search">
+          <Search />
         </Variant>
       </Component>
     </Category>

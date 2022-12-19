@@ -2,7 +2,7 @@ import React, { FC, MouseEvent, useEffect, useState } from 'react'
 import { ProjectItem } from './ProjectItem'
 import { IndicatorColorEnum } from '../common/ColoredCircle'
 import { useProject } from './hooks/useProject'
-import { ReactComponent as PlusIcon } from '../../assets/img/plusIcon.svg'
+import { ReactComponent as PlusIcon } from '../../assets/img/icons/plus.svg'
 import styles from './NavBar.module.scss'
 
 const myProjects = [

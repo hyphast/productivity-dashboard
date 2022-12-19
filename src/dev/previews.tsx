@@ -3,6 +3,7 @@ import { ComponentPreview, Previews } from '@react-buddy/ide-toolbox'
 import { PaletteTree } from './palette'
 import App from '../App'
 import { NavBar } from '../components/NavBar'
+import { NewTask } from '../components/NewTask'
 
 const ComponentPreviews = () => {
   return (
@@ -12,6 +13,9 @@ const ComponentPreviews = () => {
       </ComponentPreview>
       <ComponentPreview path="/NavBar">
         <NavBar />
+      </ComponentPreview>
+      <ComponentPreview path="/NewTask">
+        <NewTask />
       </ComponentPreview>
     </Previews>
   )

@@ -1,8 +1,8 @@
-@import "commonStyles/variables";
-@import "commonStyles/libs/normalize";
+@use "commonStyles/colors" as v;
+@use "commonStyles/libs/_normalize.scss";
 
 body {
-  background-color: $background;
+  background-color: v.$background;
   //overflow: hidden;
 }
 
@@ -10,7 +10,6 @@ body {
   width: calc(100vw - 50px);
   height: 100%;
   margin: 0 auto;
-  //max-
 }
 
 .delimiters {

@@ -1,13 +1,9 @@
 .root {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 90px 280px;
+  grid-template-columns: 1fr 280px;
   grid-template-rows: 1fr;
   //border: 2px solid green;
-
-  .notifications {
-    align-self: center;
-  }
 
   .userInfo {
     text-overflow: ellipsis;

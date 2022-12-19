@@ -1,0 +1,32 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .submit {
+    margin-top: 25px;
+    border-radius: 5px;
+    width: 100px;
+    height: 37px;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    background: rgba(50,48,229,20%);
+  }
+
+  .errorMsg {
+    position: absolute;
+    color: red;
+    font-size: 12px;
+  }
+}
+
+.errorClose {
+  button {
+    svg {
+      fill: red;
+    }
+  }
+}
+
