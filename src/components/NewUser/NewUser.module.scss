@@ -4,6 +4,20 @@
   justify-content: center;
   align-items: center;
 
+  .priority {
+    color: black;
+    font-size: 14px;
+
+    label {
+      margin-left: 10px;
+      text-align: center;
+    }
+  }
+
+  input {
+    margin-bottom: 10px;
+  }
+
   .submit {
     margin-top: 25px;
     border-radius: 5px;

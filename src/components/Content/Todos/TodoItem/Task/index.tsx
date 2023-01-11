@@ -1,18 +1,25 @@
 import React, { FC } from 'react'
 import cn from 'classnames'
 import { useDrag } from 'react-dnd'
-import { Dots } from '../../../../common/Dots'
+import { ref } from 'firebase/database'
+import { Dots } from '../../../../Dots'
 import { ItemTypes, PriorityEnum, TTaskData } from '../../types/types'
-// import dragPreviewImg from '../../../../../assets/img/img.png'
 import photoImg from '../../../../../assets/img/ava.jpg'
+import { useObject } from '../../../../../hooks/useObject'
+import { db } from '../../../../../firebase'
+import { TodoLoader } from '../../../../Loaders/TodoLoader'
+import { Avatar } from '../../../../Avatar'
+// import dragPreviewImg from '../../../../../assets/img/img.png'
 import styles from './Task.module.scss'
 
 export type TTask = {
   id: number
   task: TTaskData
+  loading: boolean
 }
-export const Task: FC<TTask> = ({ id, task }) => {
+export const Task: FC<TTask> = ({ id, task, loading }) => {
   const { priority, date, title, desc, stage } = task
+  // const [snapshot] = useObject(ref(db, `users/${task.owner}`))
   const [{ isDragging }, drag, preview] = useDrag(() => ({
     type: ItemTypes.TASK,
     item: { id, stage },
@@ -20,6 +27,7 @@ export const Task: FC<TTask> = ({ id, task }) => {
       isDragging: !!monitor.isDragging(),
     }),
   }))
+
   return (
     <>
       {/*<DragPreviewImage connect={preview} src={dragPreviewImg} />*/}
@@ -43,20 +51,22 @@ export const Task: FC<TTask> = ({ id, task }) => {
         </div>
         <div className={styles.taskMain}>
           <h5>{title}</h5>
-          <div className={styles.date}>
-            {new Intl.DateTimeFormat('en-GB', {
-              dateStyle: 'full',
-              timeStyle: 'short',
-            }).format(date)}
-          </div>
+          {/*<div className={styles.date}>*/}
+          {/*  {new Intl.DateTimeFormat('en-GB', {*/}
+          {/*    dateStyle: 'full',*/}
+          {/*    timeStyle: 'short',*/}
+          {/*  }).format(date)}*/}
+          {/*</div>*/}
           <div className={styles.desc}>{desc}</div>
         </div>
         <div className={styles.taskFooter}>
-          <img
-            className={styles.ownerAvatar}
-            src={photoImg}
-            alt="owner task avatar"
-          />
+          <Avatar userId={task.owner} className={styles.ownerAvatar} />
+          {/*<img*/}
+          {/*  className={styles.ownerAvatar}*/}
+          {/*  src={photoImg}*/}
+          {/*  alt="owner task avatar"*/}
+          {/*/>*/}
+          {/*<span>{snapshot && snapshot?.val()?.name}</span>*/}
         </div>
       </div>
     </>

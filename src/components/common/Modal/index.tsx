@@ -1,4 +1,4 @@
-import React, { FC, PropsWithChildren, useEffect, useRef } from 'react'
+import React, { FC, PropsWithChildren, useRef } from 'react'
 import cn from 'classnames'
 import { CSSTransition } from 'react-transition-group'
 import { ReactPortal } from './ReactPortal'
@@ -28,6 +28,7 @@ export const Modal: FC<IModalProps> = ({
     <ReactPortal id="modal-root">
       <CSSTransition
         in={isOpen}
+        appear
         timeout={300}
         unmountOnExit
         classNames="modal"

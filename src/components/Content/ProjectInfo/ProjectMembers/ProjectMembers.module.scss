@@ -6,6 +6,43 @@
     align-items: center;
     justify-content: end;
 
+    .inviteLink {
+      margin-right: 25px;
+      display: flex;
+
+      input {
+        min-width: 400px;
+        text-align: center;
+        height: 44px;
+        border: 0;
+        border-radius: 5px;
+        background: #F5F5F5;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 15px;
+        cursor: text;
+      }
+
+      button {
+        margin-left: 7px;
+        width: 70px;
+        height: 44px;
+        text-align: center;
+        color: #5030E5;
+        font-weight: 500;
+        font-size: 14px;
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(102%) translateY(-7%);
+        }
+
+        &:active {
+          color: #787486;
+        }
+      }
+    }
+
     svg {
       cursor: pointer;
       transition: all 0.1s ease-in-out;
@@ -15,49 +52,48 @@
       }
     }
 
-    .addMember {
-      margin: 0 14px 0 9px;
-      color: #5030E5;
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 19px;
-      text-transform: capitalize;
-    }
+    //.addMember {
+    //  margin: 0 14px 0 9px;
+    //  color: #5030E5;
+    //  font-weight: 500;
+    //  font-size: 16px;
+    //  line-height: 19px;
+    //  text-transform: capitalize;
+    //}
 
     .members {
+      //display: grid;
+      //grid-template-columns: 55px;
+      //grid-template-rows: 55px;
       display: flex;
-
-      .memberItem {
-        width: 39px;
-        height: 39px;
-        border: 1px solid white;
-        border-radius: 50%;
-      }
+      height: 55px;
+      min-width: 55px;
 
       .memberItem + .memberItem {
         position: relative;
-        left: -9px;
+        left: -10px;
       }
 
-      .memberItem:last-child {
-        left: -17px;
-      }
+      //.memberItem:last-child {
+      //  left: -17px;
+      //}
 
-      .restMembers {
-        background: #F4D7DA;
-        text-align: center;
-        color: #D25B68;
-        font-weight: 500;
-        font-size: 15px;
-        line-height: 18px;
-        text-transform: capitalize;
-        padding-top: 9px;
-      }
+      //.restMembers {
+      //  background: #F4D7DA;
+      //  text-align: center;
+      //  color: #D25B68;
+      //  font-weight: 500;
+      //  font-size: 15px;
+      //  line-height: 18px;
+      //  text-transform: capitalize;
+      //  padding-top: 9px;
+      //}
     }
   }
 
   .afterMembers {
     display: flex;
+    justify-content: end;
     align-items: center;
     margin-top: 50px;
 

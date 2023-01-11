@@ -1,4 +1,4 @@
-import { IndicatorColorEnum } from '../../../common/ColoredCircle'
+import { IndicatorColorEnum } from '../../../ColoredCircle'
 
 export const ItemTypes = {
   TASK: 'todos/task',
@@ -27,4 +27,5 @@ export type TTaskData = {
   date: Date
   title: string
   desc: string
+  owner: string
 }

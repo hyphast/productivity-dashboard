@@ -1,16 +1,22 @@
-import React from 'react'
+import React, { FC } from 'react'
+import { ref } from 'firebase/database'
 import { ProjectMembers } from './ProjectMembers'
 import { ProjectTitle } from './ProjectTitle'
+import { useObject } from '../../../hooks/useObject'
+import { db } from '../../../firebase'
 import styles from './ProjectInfo.module.scss'
 
-export const ProjectInfo = () => {
+type ProjectInfoProps = {
+  projectId: string
+}
+export const ProjectInfo: FC<ProjectInfoProps> = ({ projectId }) => {
   return (
     <div className={styles.root}>
       <div className={styles.projectTitle}>
-        <ProjectTitle />
+        <ProjectTitle projectId={projectId} />
       </div>
       <div className={styles.projectMembers}>
-        <ProjectMembers />
+        <ProjectMembers projectId={projectId} />
       </div>
     </div>
   )
