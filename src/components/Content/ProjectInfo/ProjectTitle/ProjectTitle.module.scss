@@ -1,11 +1,30 @@
 .root {
   display: flex;
+  flex-direction: column;
 
-  h1 {
+  @mixin titleStyles() {
     font-weight: 600;
     font-size: 46px;
     line-height: 56px;
-    text-transform: capitalize;
+  }
+
+  input {
+    width: 350px;
+  }
+
+  .titleInput {
+    border: none;
+    min-width: 150px;
+    @include titleStyles();
+  }
+
+  .title {
+    display: flex;
+    flex-direction: row;
+  }
+
+  h1 {
+    @include titleStyles();
   }
 
   .iconsContainer {

@@ -6,6 +6,7 @@ export enum IndicatorColorEnum {
   'orange' = '#FFA500',
   'purple' = '#5030E5',
   'blue' = '#76A5EA',
+  'red' = '#e13a31',
 }
 type TColoredCircle = {
   indicatorColor?: IndicatorColorEnum

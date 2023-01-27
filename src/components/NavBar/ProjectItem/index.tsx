@@ -1,8 +1,8 @@
-import React, { FC, useEffect } from 'react'
+import React, { FC } from 'react'
 import cn from 'classnames'
 import { ColoredCircle, IndicatorColorEnum } from '../../ColoredCircle'
+import { DeleteButton } from '../../DeleteButton'
 import styles from './ProjectItem.module.scss'
-import { Dots } from '../../Dots'
 
 export type TProjectItem = {
   name: string
@@ -20,8 +20,8 @@ export const ProjectItem: FC<TProjectItem> = ({
         <ColoredCircle indicatorColor={indicatorColor} />
       </div>
       <div className={styles.name}>{name}</div>
-      <div className={styles.dots}>
-        <Dots />
+      <div className={styles.deleteIcon}>
+        <DeleteButton />
       </div>
     </div>
   )

@@ -1,7 +1,13 @@
 .root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   .avatar {
-    width: 39px;
-    height: 39px;
+    align-self: center;
+    width: 41px;
+    height: 41px;
     border: 1px solid white;
     border-radius: 50%;
   }
@@ -9,7 +15,7 @@
   .name {
     width: 45px;
     position: relative;
-    top: -6px;
+    top: -3px;
     text-align: center;
     font-size: 13px;
     overflow:hidden;

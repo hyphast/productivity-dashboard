@@ -48,4 +48,38 @@
       cursor: pointer;
     }
   }
+
+  .dropdown {
+    background: white;
+    width: 120px;
+    height: 60px;
+    border: 1px solid #d2d0d0;
+    border-radius: 10px;
+    position: absolute;
+    right: 50px;
+    top: 50px;
+
+    button {
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      font-size: 16px;
+      line-height: 19.36px;
+      cursor: pointer;
+      opacity: 90%;
+
+      svg {
+        opacity: 90%;
+        position: relative;
+        right: -10px;
+        top: 4px;
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  .dropdownHidden {
+    display: none;
+  }
 }

@@ -31,12 +31,12 @@
     display: flex;
     flex-direction: column;
 
-    button {
+    .projectBtn {
       width: 225px;
       height: 45px;
     }
 
-    button + button {
+    .projectBtn + .projectBtn {
       margin-top: 10px;
     }
   }

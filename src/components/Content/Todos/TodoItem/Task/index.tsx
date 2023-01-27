@@ -2,7 +2,6 @@ import React, { FC } from 'react'
 import cn from 'classnames'
 import { useDrag } from 'react-dnd'
 import { ref } from 'firebase/database'
-import { Dots } from '../../../../Dots'
 import { ItemTypes, PriorityEnum, TTaskData } from '../../types/types'
 import photoImg from '../../../../../assets/img/ava.jpg'
 import { useObject } from '../../../../../hooks/useObject'
@@ -10,6 +9,7 @@ import { db } from '../../../../../firebase'
 import { TodoLoader } from '../../../../Loaders/TodoLoader'
 import { Avatar } from '../../../../Avatar'
 // import dragPreviewImg from '../../../../../assets/img/img.png'
+import { DeleteButton } from '../../../../DeleteButton'
 import styles from './Task.module.scss'
 
 export type TTask = {
@@ -45,8 +45,8 @@ export const Task: FC<TTask> = ({ id, task, loading }) => {
           >
             <span>{PriorityEnum[priority]}</span>
           </div>
-          <div className={styles.dots}>
-            <Dots />
+          <div className={styles.deleteBtn}>
+            <DeleteButton />
           </div>
         </div>
         <div className={styles.taskMain}>

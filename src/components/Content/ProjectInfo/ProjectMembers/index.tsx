@@ -34,12 +34,6 @@ export const ProjectMembers: FC<ProjectMembersProps> = ({ projectId }) => {
   return (
     <div className={styles.root}>
       <div className={styles.membersContainer}>
-        <div className={styles.inviteLink}>
-          <input type="text" value={inviteLink} disabled />
-          <button type="button" onClick={onInviteClick}>
-            Copy Invite Link
-          </button>
-        </div>
         <div className={styles.members}>
           {/*{membersList.map((member) => (*/}
           {/*  <img*/}
@@ -63,27 +57,33 @@ export const ProjectMembers: FC<ProjectMembersProps> = ({ projectId }) => {
         </div>
       </div>
       <div className={styles.afterMembers}>
-        <button className={styles.shareBtn} type="button">
-          <PeopleSVG />
-          Share
-        </button>
-        <hr className={styles.delimiter} />
-        <button
-          onClick={() => setView(true)}
-          className={cn(styles.view, styles.firstView, {
-            [styles.activeView]: view,
-          })}
-          type="button"
-        >
-          <ColumnViewSVG />
-        </button>
-        <button
-          onClick={() => setView(false)}
-          className={cn(styles.view, { [styles.activeView]: !view })}
-          type="button"
-        >
-          <GridViewSVG />
-        </button>
+        {/*<button className={styles.shareBtn} type="button">*/}
+        {/*  <PeopleSVG />*/}
+        {/*  Share*/}
+        {/*</button>*/}
+        {/*<hr className={styles.delimiter} />*/}
+        {/*<button*/}
+        {/*  onClick={() => setView(true)}*/}
+        {/*  className={cn(styles.view, styles.firstView, {*/}
+        {/*    [styles.activeView]: view,*/}
+        {/*  })}*/}
+        {/*  type="button"*/}
+        {/*>*/}
+        {/*  <ColumnViewSVG />*/}
+        {/*</button>*/}
+        {/*<button*/}
+        {/*  onClick={() => setView(false)}*/}
+        {/*  className={cn(styles.view, { [styles.activeView]: !view })}*/}
+        {/*  type="button"*/}
+        {/*>*/}
+        {/*  <GridViewSVG />*/}
+        {/*</button>*/}
+        <div className={styles.inviteLink}>
+          <input type="text" value={inviteLink} disabled />
+          <button type="button" onClick={onInviteClick}>
+            Copy Invite Link
+          </button>
+        </div>
       </div>
     </div>
   )

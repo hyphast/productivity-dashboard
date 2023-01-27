@@ -35,23 +35,23 @@ export const NewTask: FC<NewTaskFormProps> = ({ handleClose }) => {
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.priority}>
-        <label htmlFor="low">
+        <div className={styles.low}>
           <input type="radio" id="low" value={0} {...register('priority')} />
-          Low
-        </label>
-        <label htmlFor="high">
+          <label htmlFor="low">Low</label>
+        </div>
+        <div className={styles.high}>
           <input type="radio" id="high" value={1} {...register('priority')} />
-          High
-        </label>
-        <label htmlFor="completed">
+          <label htmlFor="high">High</label>
+        </div>
+        <div className={styles.completed}>
           <input
             type="radio"
             id="completed"
             value={2}
             {...register('priority')}
           />
-          Completed
-        </label>
+          <label htmlFor="completed">Completed</label>
+        </div>
       </div>
       {/*<Input placeholder="Приоритет" {...register('priority')} />*/}
       <Input placeholder="Заголовок" {...register('title')} />

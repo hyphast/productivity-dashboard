@@ -1,36 +1,19 @@
-import React, { FC, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import React, { FC, MouseEvent } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { ProjectItem } from './ProjectItem'
-import { IndicatorColorEnum } from '../ColoredCircle'
 import { useProject } from './hooks/useProject'
 import { ReactComponent as PlusIcon } from '../../assets/img/icons/plus.svg'
-import { useList } from '../../hooks/useList'
+import { useUserStore } from '../../store/useUserStore'
 import styles from './NavBar.module.scss'
-import { projectsRef } from '../../firebase'
-
-const myProjects = [
-  {
-    id: 1,
-    name: 'Mobile App',
-    indicatorColor: IndicatorColorEnum.green,
-  },
-]
-
-//TODO перенести в useProject
-function randIndicator() {
-  const enumValues = Object.values(IndicatorColorEnum)
-  const index = Math.floor(Math.random() * enumValues.length)
-
-  return enumValues[index]
-}
 
 export const NavBar: FC = () => {
   const { id } = useParams()
-  const [snapshots, loading, error] = useList(projectsRef)
+  const projects = useUserStore((state) => state.projects)
   const navigate = useNavigate()
   const [createProject] = useProject()
 
-  const onNewProject = () => {
+  const onNewProject = (event: MouseEvent) => {
+    event.stopPropagation()
     createProject()
   }
 
@@ -46,8 +29,8 @@ export const NavBar: FC = () => {
         <PlusIcon onClick={onNewProject} />
       </div>
       <div className={styles.projectsContainer}>
-        {error && <strong>{error.toString()}</strong>}
-        {loading && <span>Loading...</span>}
+        {/*{error && <strong>{error.toString()}</strong>}*/}
+        {/*{loading && <span>Loading...</span>}*/}
         {/*{myProjects.map((proj, index) => (*/}
         {/*  <button*/}
         {/*    key={proj.id}*/}
@@ -62,22 +45,21 @@ export const NavBar: FC = () => {
         {/*  </button>*/}
         {/*))}*/}
         <ul>
-          {!loading &&
-            snapshots &&
-            snapshots.map((v, index) => (
-              <li key={v.key}>
-                <button
-                  type="button"
-                  onClick={() => onProjectClick(index, v.key)}
-                >
-                  <ProjectItem
-                    name={v.val().name}
-                    indicatorColor={randIndicator()}
-                    active={id === v.key}
-                  />
-                </button>
-              </li>
-            ))}
+          {projects.map((project, index) => (
+            <li key={project.id}>
+              <button
+                type="button"
+                className={styles.projectBtn}
+                onClick={() => onProjectClick(index, project.id)}
+              >
+                <ProjectItem
+                  name={project.name}
+                  indicatorColor={project.indicator}
+                  active={id === project.id}
+                />
+              </button>
+            </li>
+          ))}
         </ul>
       </div>
     </nav>

@@ -1,26 +1,44 @@
 import { useState } from 'react'
 import { push, set } from 'firebase/database'
+import { useNavigate } from 'react-router-dom'
 import { projectsRef } from '../../../firebase'
 import { useUserStore } from '../../../store/useUserStore'
 
-export const useProject = (): [() => Promise<void>, boolean] => {
+export const useProject = (): [
+  () => Promise<void>,
+  boolean,
+  string | undefined
+] => {
   const [loading, setLoading] = useState(false)
-  const userId = useUserStore((state) => state.user.id)
-  const addProject = useUserStore((state) => state.addProject)
+  const [error, setError] = useState<string | undefined>(undefined)
+  const navigate = useNavigate()
+  const projects = useUserStore((state) => state.projects)
 
   const createProject = async () => {
-    setLoading(true)
+    try {
+      setLoading(true)
 
-    const pRef = await push(projectsRef)
-    const id = pRef.key
-    if (!id) return
+      const pRef = push(projectsRef)
+      const id = pRef.key
+      if (!id) return
 
-    set(pRef, { name: 'New project' })
-    // set(push(ref(db, 'users/123/projects')), id)
-    addProject(id)
+      const sameName = projects.filter(
+        (item) => item.name.replace(/\s\(\d+\)/, '') === 'New Project'
+      )
+      const projectName =
+        sameName.length > 0 ? `New Project (${sameName.length})` : 'New Project'
 
-    setLoading(false)
+      await set(pRef, { name: projectName })
+      // set(push(ref(db, 'users/123/projects')), id)
+      // addProject(id, name) // TODO ?
+
+      setLoading(false)
+
+      navigate(`/${id}`, { state: { isNewProject: true } })
+    } catch (e) {
+      setError('Some error')
+    }
   }
 
-  return [createProject, loading]
+  return [createProject, loading, error]
 }

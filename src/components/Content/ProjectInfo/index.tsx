@@ -1,9 +1,6 @@
 import React, { FC } from 'react'
-import { ref } from 'firebase/database'
 import { ProjectMembers } from './ProjectMembers'
 import { ProjectTitle } from './ProjectTitle'
-import { useObject } from '../../../hooks/useObject'
-import { db } from '../../../firebase'
 import styles from './ProjectInfo.module.scss'
 
 type ProjectInfoProps = {

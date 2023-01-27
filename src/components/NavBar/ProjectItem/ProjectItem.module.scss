@@ -25,10 +25,24 @@
     white-space: nowrap;
   }
 
-  .dots {
+  .deleteIcon {
+    width: 20px;
+    height: 20px;
+    opacity: 50%;
     position: absolute;
-    top: 9px;
+    top: 12px;
     right: 15px;
+
+    svg {
+      &:hover {
+        path {
+          stroke: red;
+        }
+        line {
+          stroke: red;
+        }
+      }
+    }
   }
 }
 

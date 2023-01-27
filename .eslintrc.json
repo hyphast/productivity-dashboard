@@ -40,6 +40,7 @@
     "no-else-return": "warn",
     "import/no-extraneous-dependencies": "warn",
     "react/jsx-no-useless-fragment": "warn",
-    "jsx-a11y/label-has-associated-control": "warn"
+    "jsx-a11y/label-has-associated-control": "warn",
+    "no-nested-ternary": "warn"
   }
 }

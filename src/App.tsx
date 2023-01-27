@@ -29,11 +29,7 @@ const App: FC = () => {
             </Route>
           </Routes>
           {!isPersist && (
-            <Modal
-              handleClose={handleClose}
-              isOpen={isOpen}
-              title="Введите ваше имя"
-            >
+            <Modal isOpen={isOpen} title="Введите ваше имя">
               <NewUser handleClose={handleClose} />
             </Modal>
           )}

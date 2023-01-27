@@ -7,12 +7,12 @@ import { ReactComponent as AddIcon } from '../../../../assets/img/icons/add.svg'
 import { ItemTypes, StageEnum, TTaskData } from '../types/types'
 import { Task } from './Task'
 import { Overlay } from './Overlay'
-import styles from './TodoItem.module.scss'
 import { Modal } from '../../../common/Modal'
 import { useModal } from '../../../../hooks/useModal'
 import { NewTask } from '../../../NewTask'
 import { db } from '../../../../firebase'
 import { TodoLoader } from '../../../Loaders/TodoLoader'
+import styles from './TodoItem.module.scss'
 
 const stageTitles = [
   {

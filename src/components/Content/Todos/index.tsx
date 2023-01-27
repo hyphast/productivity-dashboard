@@ -9,7 +9,6 @@ import { PriorityEnum, StageEnum, TTaskData, TTodo } from './types/types'
 import { useList } from '../../../hooks/useList'
 import { db } from '../../../firebase'
 import styles from './Todos.module.scss'
-import { TodoLoader } from '../../Loaders/TodoLoader'
 
 const todosSkeleton: TTodo[] = [
   {

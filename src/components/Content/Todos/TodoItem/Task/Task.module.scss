@@ -41,10 +41,10 @@
       }
     }
 
-    .dots {
+    .deleteBtn {
       position: absolute;
-      top: -7px;
-      right: 7px;
+      top: 0;
+      right: 0;
     }
   }
 
@@ -75,6 +75,8 @@
   .taskFooter {
     .ownerAvatar {
       display: flex;
+      flex-direction: row;
+      justify-content: start;
       align-items: end;
 
       img {

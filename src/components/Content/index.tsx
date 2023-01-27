@@ -1,27 +1,49 @@
-import React, { FC, useEffect, useRef } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import {
-  ThenableReference,
-  DatabaseReference,
+  child,
+  get,
   off,
   onDisconnect,
   onValue,
   push,
   ref,
   set,
+  ThenableReference,
 } from 'firebase/database'
 import { ProjectInfo } from './ProjectInfo'
 import { Todos } from './Todos'
 import { db } from '../../firebase'
 import { useUserStore } from '../../store/useUserStore'
 import styles from './Content.module.scss'
+import { ProjectError } from '../ProjectNotFound'
 
 export const Content: FC = () => {
   const { id } = useParams()
   const userId = useUserStore((state) => state.user.id)
-  // const prevIdRef = useRef(ThenableReference)
+  const addProject = useUserStore((state) => state.addProject)
+  const [err, setErr] = useState(false)
 
   useEffect(() => {
+    if (id) {
+      get(child(ref(db), `projects/${id}`))
+        .then((snapshot) => {
+          if (snapshot.exists()) {
+            addProject(id, snapshot.val().name)
+          } else {
+            console.log('No data available')
+            setErr(true)
+          }
+        })
+        .catch((error) => {
+          console.error(error)
+          setErr(true)
+        })
+    }
+  }, [id])
+
+  useEffect(() => {
+    if (err) return
     const myConnectionsRef = ref(db, `projects/${id}/connections`)
     const connectedRef = ref(db, '.info/connected')
     let con: ThenableReference | undefined
@@ -38,6 +60,7 @@ export const Content: FC = () => {
         set(con, userId)
       }
     })
+    // eslint-disable-next-line consistent-return
     return () => {
       if (con) {
         set(con, null)
@@ -47,7 +70,11 @@ export const Content: FC = () => {
   }, [id])
 
   if (!id) {
-    return <h1>Проект не выбран</h1>
+    return <ProjectError message="Проект не выбран" />
+  }
+
+  if (err) {
+    return <ProjectError message="Такого проекта не существует" />
   }
 
   return (
