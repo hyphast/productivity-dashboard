@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
 import styles from './Overlay.module.scss'
 
-type TOverlay = {
+type OverlayProps = {
   color?: string
 }
-export const Overlay: FC<TOverlay> = ({ color }) => {
+export const Overlay: FC<OverlayProps> = ({ color }) => {
   return <div className={styles.root} style={{ backgroundColor: color }} />
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Category, Component, Palette, Variant } from '@react-buddy/ide-toolbox'
-import { Search } from '../components/common/Input/Search'
+import { Search } from '../components'
 
 export const PaletteTree = () => (
   <Palette>

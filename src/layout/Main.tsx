@@ -1,13 +1,11 @@
 import React, { FC, useState } from 'react'
 import cn from 'classnames'
-import { Header } from '../components/Header'
-import { NavBar } from '../components/NavBar'
-import { Content } from '../components/Content'
-import { TopInfo } from '../components/NavBar/TopInfo'
+import { Header, NavBar, Content, TopInfo } from '../components'
 import styles from './Main.module.scss'
 
 export const Main: FC = () => {
   const [navbarVisible, setNavbarVisible] = useState(true)
+
   return (
     <div className={styles.root}>
       <div className={styles.header}>

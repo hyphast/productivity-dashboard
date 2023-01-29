@@ -8,10 +8,10 @@ export enum IndicatorColorEnum {
   'blue' = '#76A5EA',
   'red' = '#e13a31',
 }
-type TColoredCircle = {
+type ColoredCircleProps = {
   indicatorColor?: IndicatorColorEnum
 }
-export const ColoredCircle: FC<TColoredCircle> = ({ indicatorColor }) => {
+export const ColoredCircle: FC<ColoredCircleProps> = ({ indicatorColor }) => {
   return <span style={{ background: indicatorColor }} className={styles.root} />
 }
 

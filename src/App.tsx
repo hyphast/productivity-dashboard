@@ -1,10 +1,8 @@
 import React, { FC, useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { NewUser } from './components/NewUser'
-import { Modal } from './components/common/Modal'
 import { Main } from './layout/Main'
 import { useModal } from './hooks/useModal'
-import { Content } from './components/Content'
+import { Content, NewUser, Modal } from './components'
 import './App.scss'
 
 const App: FC = () => {

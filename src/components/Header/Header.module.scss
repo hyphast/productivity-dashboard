@@ -3,7 +3,16 @@
   display: grid;
   grid-template-columns: 1fr 280px;
   grid-template-rows: 1fr;
-  //border: 2px solid green;
+
+  .searchWrapper {
+    width: 100%;
+    position: relative;
+
+    .search {
+      margin: 8px 0 0 46px;
+      width: 80%;
+    }
+  }
 
   .userInfo {
     text-overflow: ellipsis;

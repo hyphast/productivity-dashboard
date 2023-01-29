@@ -13,20 +13,20 @@ type TitleInputProps = {
   onChange: (event: ChangeEvent<HTMLInputElement>) => void
   value: string
   setIsEditable: React.Dispatch<React.SetStateAction<boolean>>
-  setNewProject: () => void
+  setNewProjectName: () => void
 }
 export const TitleInput: FC<TitleInputProps> = ({
   onChange,
   value,
   setIsEditable,
-  setNewProject,
+  setNewProjectName,
 }) => {
   const inputRef = useRef<HTMLInputElement>(null)
 
   const closeTitleInput = useCallback(() => {
-    setNewProject()
+    setNewProjectName()
     setIsEditable(false)
-  }, [setNewProject])
+  }, [setNewProjectName])
 
   useClickOutside(inputRef, closeTitleInput)
 
@@ -37,11 +37,11 @@ export const TitleInput: FC<TitleInputProps> = ({
   const onInputKeyDown = useCallback(
     (event: KeyboardEvent<HTMLInputElement>) => {
       if (event.key === 'Enter') {
-        setNewProject()
+        setNewProjectName()
         setIsEditable(false)
       }
     },
-    [setNewProject]
+    [setNewProjectName]
   )
 
   return (

@@ -1,17 +1,15 @@
-import React, { FC, MouseEvent, useCallback } from 'react'
+import React, { FC, MouseEvent } from 'react'
 import { useDrop } from 'react-dnd'
-import { push, ref, set } from 'firebase/database'
-import { useParams } from 'react-router-dom'
 import { ColoredCircle, IndicatorColorEnum } from '../../../ColoredCircle'
 import { ReactComponent as AddIcon } from '../../../../assets/img/icons/add.svg'
-import { ItemTypes, StageEnum, TTaskData } from '../types/types'
+import { StageEnum, TTaskData } from '../Todos.types'
 import { Task } from './Task'
 import { Overlay } from './Overlay'
 import { Modal } from '../../../common/Modal'
 import { useModal } from '../../../../hooks/useModal'
-import { NewTask } from '../../../NewTask'
-import { db } from '../../../../firebase'
+import { NewTask } from '../../../ModalForms/NewTask'
 import { TodoLoader } from '../../../Loaders/TodoLoader'
+import { useDropArgs } from './useDropArgs'
 import styles from './TodoItem.module.scss'
 
 const stageTitles = [
@@ -31,50 +29,18 @@ const stageTitles = [
 export type TTodoItem = {
   stage: StageEnum
   indicatorColor: IndicatorColorEnum
-  todosCount: number
   taskData: TTaskData[]
   loading: boolean
-  // setTaskData: React.Dispatch<React.SetStateAction<TTaskData[]>>
 }
 export const TodoItem: FC<TTodoItem> = ({
   stage,
   indicatorColor,
-  todosCount,
   taskData,
   loading,
-  // setTaskData,
 }) => {
-  const { id } = useParams()
-  const [{ isOver, canDrop }, drop] = useDrop(
-    () => ({
-      accept: ItemTypes.TASK,
-      canDrop: (item: { id: number; stage: StageEnum }) => stage !== item.stage,
-      drop: (item: { id: number; stage: StageEnum }) => {
-        // setTaskData((prev) =>
-        //   prev.map((t) => {
-        //     if (t.id === item.id) {
-        //       return { ...t, stage }
-        //     }
-        //     return t
-        //   })
-        // )
-        taskData.map((t) => {
-          if (t.id === item.id) {
-            set(ref(db, `projects/${id}/todos/${t.id}`), {
-              ...t,
-              stage,
-            })
-          }
-          return t
-        })
-      },
-      collect: (monitor) => ({
-        isOver: !!monitor.isOver(),
-        canDrop: !!monitor.canDrop(),
-      }),
-    }),
-    [stage, taskData]
-  )
+  const dropArgs = useDropArgs(stage, taskData)
+  const [{ isOver, canDrop }, drop] = useDrop(dropArgs, [stage, taskData])
+
   const { isOpen, setIsOpen, handleClose } = useModal(false)
 
   const stageName = stageTitles.find((item) => item.id === stage)
@@ -117,7 +83,7 @@ export const TodoItem: FC<TTodoItem> = ({
           <TodoLoader />
         ) : (
           stageTasks.map((task) => (
-            <Task key={task.id} id={task.id} task={task} loading={loading} />
+            <Task key={task.id} id={task.id} task={task} />
           ))
         )}
       </div>

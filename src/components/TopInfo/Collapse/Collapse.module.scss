@@ -1,4 +1,4 @@
-@use "../../../../commonStyles/colors" as *;
+@use "../../../commonStyles/colors" as *;
 
 .root {
   display: flex;
@@ -6,10 +6,6 @@
   align-self: center;
   justify-self: center;
   cursor: pointer;
-
-  //&:hover {
-  //  transform: scale(1.1);
-  //}
 
   .arrow {
     width: 10px;

@@ -1,0 +1,45 @@
+.priority {
+  color: black;
+  display: flex;
+  font-size: 14px;
+  margin-bottom: 15px;
+
+  label {
+    margin-left: 10px;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 15px;
+    line-height: 34px;
+    border-radius: 6px;
+    user-select: none;
+  }
+
+  .low {
+    label {
+      background: rgba(223, 168, 116, 20%);
+      color: #D58D49;
+    }
+  }
+
+  .high {
+    label {
+      background: rgba(216, 114, 125, 10%);
+      color: #D8727D;
+    }
+  }
+
+  .completed {
+    label {
+      background: rgba(131, 194, 157, 20%);
+      color: #68B266;
+    }
+  }
+
+  input[type=radio] {
+    display: none;
+
+    &:checked + label {
+      border: 2px dashed grey;
+    }
+  }
+}

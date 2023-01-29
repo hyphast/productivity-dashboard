@@ -79,7 +79,6 @@ export default App
 //     const connectedRef = ref(db, '.info/connected')
 //     onValue(connectedRef, (snap) => {
 //       if (snap.val() === true) {
-//         console.log(snap.val())
 //         // We're connected (or reconnected)! Do anything here that should happen only if online (or on reconnect)
 //         const con = push(myConnectionsRef)
 //

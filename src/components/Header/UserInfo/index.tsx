@@ -1,46 +1,39 @@
-import React, {
-  MouseEvent,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from 'react'
+import React, { useCallback, useRef } from 'react'
 import cn from 'classnames'
-import { useNavigate } from 'react-router-dom'
+import { CSSTransition } from 'react-transition-group'
+import { useUserStore } from '../../../store/useUserStore'
 import { ReactComponent as ArrowIcon } from '../../../assets/img/icons/arrow.svg'
-import { avatars, useUserStore } from '../../../store/useUserStore'
 import { ReactComponent as LogoutIcon } from '../../../assets/img/icons/logout.svg'
+import { useDropdown } from './hooks/useDropdown'
+import { useAvatar } from './hooks/useAvatar'
 import styles from './UserInfo.module.scss'
-import { useClickOutside } from '../../../hooks/useClickOutside'
 
 export const UserInfo = () => {
   const name = useUserStore((state) => state.user.name)
-  const avatarIdx = useUserStore((state) => state.user.avatar)
-  const [isDropdownVisible, setIsDropdownVisible] = useState(false)
+  const [avatar] = useAvatar()
   const dropdownRef = useRef<HTMLDivElement>(null)
-
-  const closeDropdown = useCallback(() => {
-    setIsDropdownVisible(false)
-  }, [])
-
-  useClickOutside(dropdownRef, closeDropdown)
+  const [isDropdownVisible, { toggleDropdown: onArrowClick }] =
+    useDropdown(dropdownRef)
 
   const onLogoutClick = useCallback(() => {
     localStorage.removeItem('user-storage')
     window.location.reload()
   }, [])
 
-  const onArrowClick = (event: MouseEvent<HTMLOrSVGElement>) => {
-    event.stopPropagation()
-    setIsDropdownVisible((prev) => !prev)
-  }
-
   return (
     <div className={styles.root}>
       <span className={styles.name}>{name}</span>
       <span className={styles.from}>Developer</span>
-      <img className={styles.avatar} src={avatars[avatarIdx]} alt="avatar" />
+      <img className={styles.avatar} src={avatar} alt="avatar" />
       <ArrowIcon onClick={onArrowClick} className={styles.arrow} />
+      {/*<CSSTransition*/}
+      {/*  in={isDropdownVisible}*/}
+      {/*  appear*/}
+      {/*  timeout={300}*/}
+      {/*  unmountOnExit*/}
+      {/*  classNames="dropdown"*/}
+      {/*  nodeRef={dropdownRef}*/}
+      {/*>*/}
       <div
         ref={dropdownRef}
         className={cn(
@@ -53,6 +46,7 @@ export const UserInfo = () => {
           <LogoutIcon />
         </button>
       </div>
+      {/*</CSSTransition>*/}
     </div>
   )
 }

@@ -41,16 +41,21 @@
       //  left: -17px;
       //}
 
-      //.restMembers {
-      //  background: #F4D7DA;
-      //  text-align: center;
-      //  color: #D25B68;
-      //  font-weight: 500;
-      //  font-size: 15px;
-      //  line-height: 18px;
-      //  text-transform: capitalize;
-      //  padding-top: 9px;
-      //}
+      .restMembers {
+        width: 125px;
+        height: 41px;
+        border: 1px solid white;
+        border-radius: 22px;
+        padding: 10px 10px 0 10px;
+        margin-right: 15px;
+
+        background: #F4D7DA;
+        text-align: center;
+        color: #D25B68;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 18px;
+      }
     }
   }
 

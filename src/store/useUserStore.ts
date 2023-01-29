@@ -1,13 +1,11 @@
 import create from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'
-import { push } from 'firebase/database'
 import { IndicatorColorEnum } from '../components/ColoredCircle'
 import avatarImg0 from '../assets/img/ava0.png'
 import avatarImg1 from '../assets/img/ava.jpg'
 import avatarImg2 from '../assets/img/ava2.jpg'
 import avatarImg3 from '../assets/img/ava3.jpg'
-import { projectsRef } from '../firebase'
 
 export const avatars = [avatarImg0, avatarImg1, avatarImg2, avatarImg3]
 
@@ -63,12 +61,6 @@ export const useUserStore = create<IUserState>()(
                 state.projects[projectExistId].name = name
               })
             } else {
-              // const sameName = get().projects.filter(
-              //   (item) => item.name.replace(/\s\(\d\)/, '') === name
-              // )
-              // const projectName =
-              //   sameName.length > 0 ? `${name} (${sameName.length})` : name
-
               set((state) => {
                 state.projects.push({
                   id,

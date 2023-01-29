@@ -2,11 +2,11 @@ import React, { Dispatch, FC, SetStateAction } from 'react'
 import cn from 'classnames'
 import styles from './Collapse.module.scss'
 
-type TCollapse = {
+type CollapseProps = {
   setNavbarVisible: Dispatch<SetStateAction<boolean>>
   navbarVisible: boolean
 }
-export const Collapse: FC<TCollapse> = ({
+export const Collapse: FC<CollapseProps> = ({
   setNavbarVisible,
   navbarVisible,
 }) => {

@@ -14,3 +14,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 export const db = getDatabase()
 export const projectsRef = ref(db, 'projects')
+export const usersRef = ref(db, 'users')

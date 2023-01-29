@@ -1,4 +1,4 @@
-import { IndicatorColorEnum } from '../../../ColoredCircle'
+import { IndicatorColorEnum } from '../../ColoredCircle'
 
 export const ItemTypes = {
   TASK: 'todos/task',
@@ -13,7 +13,6 @@ export type TTodo = {
   id: number
   stage: StageEnum
   indicatorColor: IndicatorColorEnum
-  todosCount: number
 }
 export enum PriorityEnum {
   'Low',

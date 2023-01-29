@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 
 type UseModalReturn = {
   isOpen: boolean
@@ -8,9 +8,9 @@ type UseModalReturn = {
 export const useModal = (initialOpen: boolean = false): UseModalReturn => {
   const [isOpen, setIsOpen] = useState(initialOpen)
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setIsOpen(false)
-  }
+  }, [])
 
   return { isOpen, setIsOpen, handleClose }
 }

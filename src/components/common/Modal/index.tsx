@@ -19,7 +19,7 @@ export const Modal: FC<IModalProps> = ({
   handleClose,
   title,
 }) => {
-  const nodeRef = useRef(null)
+  const nodeRef = useRef<HTMLDivElement>(null)
   const modalRef = useRef<HTMLDivElement>(null)
 
   const isClosable = handleClose

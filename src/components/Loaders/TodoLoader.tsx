@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { FC } from 'react'
 import ContentLoader from 'react-content-loader'
 
-export const TodoLoader = () => {
+export const TodoLoader: FC = () => {
   return (
     <ContentLoader
       speed={2}

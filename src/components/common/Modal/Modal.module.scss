@@ -55,4 +55,10 @@
   height: 25px;
   opacity: 50%;
   cursor: pointer;
+
+  &:hover {
+    svg {
+      fill: red;
+    }
+  }
 }

@@ -3,11 +3,14 @@ import { Collapse } from './Collapse'
 import { Logo } from './Logo'
 import styles from './TopInfo.module.scss'
 
-type TTopInfo = {
+type TopInfoProps = {
   setNavbarVisible: Dispatch<SetStateAction<boolean>>
   navbarVisible: boolean
 }
-export const TopInfo: FC<TTopInfo> = ({ setNavbarVisible, navbarVisible }) => {
+export const TopInfo: FC<TopInfoProps> = ({
+  setNavbarVisible,
+  navbarVisible,
+}) => {
   return (
     <div className={styles.root}>
       <Logo />
