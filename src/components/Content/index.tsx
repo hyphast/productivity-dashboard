@@ -32,12 +32,8 @@ export const Content: FC = () => {
 
   return (
     <div className={styles.root}>
-      <div className={styles.projectInfo}>
-        <ProjectInfo projectId={id} />
-      </div>
-      <div className={styles.todos}>
-        <Todos />
-      </div>
+      <ProjectInfo projectId={id} />
+      <Todos />
     </div>
   )
 }

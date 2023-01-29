@@ -19,6 +19,7 @@
         font-size: 12px;
       }
     }
+
     .low {
       background: rgba(223, 168, 116, 20%);
 
@@ -79,15 +80,17 @@
       justify-content: start;
       align-items: end;
 
-      img {
+      :global(.avatar__image) {
         width: 24px;
         height: 24px;
         margin-right: 5px;
       }
 
-      div {
+      :global(.avatar__name) {
         width: 150px;
         text-align: start;
+        position: relative;
+        top: -4px;
       }
     }
   }

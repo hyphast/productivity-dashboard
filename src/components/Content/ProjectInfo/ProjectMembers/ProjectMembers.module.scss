@@ -1,47 +1,26 @@
 .root {
-  //display: flex;
-
   .membersContainer {
     display: flex;
     align-items: center;
     justify-content: end;
 
-    svg {
-      cursor: pointer;
-      transition: all 0.1s ease-in-out;
-
-      &:hover {
-        transform: scale(1.1);
-      }
-    }
-
-    //.addMember {
-    //  margin: 0 14px 0 9px;
-    //  color: #5030E5;
-    //  font-weight: 500;
-    //  font-size: 16px;
-    //  line-height: 19px;
-    //  text-transform: capitalize;
-    //}
-
     .members {
-      //display: grid;
-      //grid-template-columns: 55px;
-      //grid-template-rows: 55px;
       display: flex;
       height: 55px;
       min-width: 55px;
+
+      .avatar {
+        :global(.avatar__name) {
+          padding-bottom: 20px;
+        }
+      }
 
       .memberItem + .memberItem {
         position: relative;
         left: -10px;
       }
 
-      //.memberItem:last-child {
-      //  left: -17px;
-      //}
-
-      .restMembers {
+      .membersAmount {
         width: 125px;
         height: 41px;
         border: 1px solid white;
@@ -60,9 +39,6 @@
   }
 
   .afterMembers {
-    display: flex;
-    justify-content: end;
-    align-items: center;
     margin-top: 20px;
 
     .inviteLink {
@@ -70,6 +46,7 @@
       display: flex;
 
       input {
+        padding: 0 20px;
         min-width: 400px;
         text-align: center;
         height: 44px;
@@ -94,59 +71,9 @@
 
         &:active {
           color: #0000a9;
+          border-bottom: 1px solid #0000a9;
         }
       }
     }
-
-    //.delimiter {
-    //  margin: 0 19px;
-    //  background: #787486;
-    //  height: 27px;
-    //}
-    //
-    //.shareBtn {
-    //  padding: 13px 15px;
-    //  border: 1px solid #787486;
-    //  border-radius: 10px;
-    //  color: #787486;
-    //  font-weight: 500;
-    //  font-size: 16px;
-    //  line-height: 19px;
-    //  text-transform: capitalize;
-    //  cursor: pointer;
-    //  transition: all 0.1s ease-in-out;
-    //
-    //  &:hover {
-    //    color: #5030e5;
-    //    transform: scale(1.03);
-    //  }
-    //
-    //  svg {
-    //    position: relative;
-    //    top: 3px;
-    //    margin-right: 8px;
-    //  }
-    //}
-    //
-    //.view {
-    //  width: 40px;
-    //  height: 40px;
-    //  border-radius: 5px;
-    //  text-align: center;
-    //  cursor: pointer;
-    //}
-    //
-    //.firstView {
-    //  svg {
-    //    stroke: #787486;
-    //  }
-    //}
-    //
-    //.activeView {
-    //  background: #5030E5;
-    //  svg {
-    //    fill: white;
-    //  }
-    //}
   }
 }

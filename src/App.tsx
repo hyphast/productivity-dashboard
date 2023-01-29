@@ -18,7 +18,8 @@ const App: FC = () => {
   }, [])
 
   return (
-    <div className="delimiters">
+    <>
+      <div className="delimiters" />
       <div className="wrapper">
         <BrowserRouter>
           <Routes>
@@ -33,7 +34,7 @@ const App: FC = () => {
           )}
         </BrowserRouter>
       </div>
-    </div>
+    </>
   )
 }
 

@@ -33,7 +33,7 @@ export const ProjectTitle: FC<ProjectTitleProps> = ({ projectId }) => {
           <h1>{title}</h1>
         )}
         <div className={styles.iconsContainer}>
-          <RenameIcon onClick={onRenameClick} />
+          {!isEditable && <RenameIcon onClick={onRenameClick} />}
         </div>
       </div>
     </div>

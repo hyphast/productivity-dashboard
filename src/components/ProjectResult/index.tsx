@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { ReactComponent as NotFoundIcon } from '../../assets/img/icons/notFound.svg'
 import { ReactComponent as NotChosen } from '../../assets/img/icons/notChosen.svg'
-import styles from './ProjectNotFound.module.scss'
+import styles from './ProjectResult.module.scss'
 
 export enum ProjectResultType {
   'NOT_FOUND',

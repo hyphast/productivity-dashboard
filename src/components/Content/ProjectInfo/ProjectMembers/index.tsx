@@ -31,11 +31,17 @@ export const ProjectMembers: FC<ProjectMembersProps> = ({ projectId }) => {
     <div className={styles.root}>
       <div className={styles.membersContainer}>
         <div className={styles.members}>
-          <div className={styles.restMembers}>Connected: {connected}</div>
+          <div className={styles.membersAmount}>Connected: {connected}</div>
           {loading
             ? [...new Array(2)].map((_, i) => <AvatarLoader key={i} />)
             : snapshots &&
-              snapshots.map((v) => <Avatar key={v.key} userId={v.val()} />)}
+              snapshots.map((v) => (
+                <Avatar
+                  className={styles.avatar}
+                  key={v.key}
+                  userId={v.val()}
+                />
+              ))}
         </div>
       </div>
       <div className={styles.afterMembers}>

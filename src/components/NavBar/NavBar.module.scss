@@ -5,6 +5,7 @@
 
   .myProjectsHeader {
     display: flex;
+    justify-content: space-between;
 
     h4 {
       color: $secondary;
@@ -20,17 +21,19 @@
     }
 
     svg {
-      margin-left: 100px;
+      margin-right: 27px;
       cursor: pointer;
 
       &:hover {
         transform: scale(1.1);
+
         :nth-child(1), :nth-child(2)   {
           stroke: #5030e5;
         }
       }
     }
   }
+
   .projectsContainer {
     margin-top: 24px;
     display: flex;

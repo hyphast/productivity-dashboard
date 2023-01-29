@@ -2,10 +2,10 @@ import create from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'
 import { IndicatorColorEnum } from '../components/ColoredCircle'
-import avatarImg0 from '../assets/img/ava0.png'
-import avatarImg1 from '../assets/img/ava.jpg'
-import avatarImg2 from '../assets/img/ava2.jpg'
-import avatarImg3 from '../assets/img/ava3.jpg'
+import avatarImg0 from '../assets/img/avatars/ava0.png'
+import avatarImg1 from '../assets/img/avatars/ava.jpg'
+import avatarImg2 from '../assets/img/avatars/ava2.jpg'
+import avatarImg3 from '../assets/img/avatars/ava3.jpg'
 
 export const avatars = [avatarImg0, avatarImg1, avatarImg2, avatarImg3]
 
