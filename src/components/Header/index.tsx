@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { UserInfo } from './UserInfo'
-import { Search } from '../common/Input/Search'
+import { Search } from '../Search'
 import styles from './Header.module.scss'
 
 export const Header: FC = () => {

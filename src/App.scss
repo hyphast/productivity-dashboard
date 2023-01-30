@@ -8,6 +8,7 @@ html {
 body {
   background-color: v.$background;
   height: 100vh;
+  overflow-y: scroll;
 }
 
 .wrapper {

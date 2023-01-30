@@ -28,8 +28,11 @@ type Project = {
 interface IUserState {
   user: { id: string; avatar: number; name: string }
   projects: Project[]
+  search: string
+  setSearch: (search: string) => void
   setUser: (id: string, name: string, avatarIdx: number) => void
   addProject: (id: string, name: string) => void
+  deleteProject: (id: string) => void
   renameProject: (id: string, name: string) => void
 }
 
@@ -44,8 +47,10 @@ export const useUserStore = create<IUserState>()(
             name: '',
           },
           projects: [],
+          search: '',
           setUser: (id: string, name: string, idx: number) =>
             set({ user: { id, name, avatar: idx } }),
+          setSearch: (search: string) => set({ search }),
           renameProject: (id: string, name: string) => {
             const projectExistId = findProjectId(get().projects, id)
             if (projectExistId > -1) {
@@ -70,9 +75,17 @@ export const useUserStore = create<IUserState>()(
               })
             }
           },
+          deleteProject: (id: string) =>
+            set((state) => ({
+              projects: state.projects.filter((item) => item.id !== id),
+            })),
         }),
         {
           name: 'user-storage',
+          // partialize: (state) =>
+          //   Object.fromEntries(
+          //     Object.entries(state).filter(([key]) => !['search'].includes(key))
+          //   ),
         }
       )
     )

@@ -51,6 +51,7 @@ export const NavBar: FC = () => {
                 }
               >
                 <ProjectItem
+                  id={project.id}
                   name={project.name}
                   indicatorColor={project.indicator}
                   active={id === project.id}

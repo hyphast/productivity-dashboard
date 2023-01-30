@@ -2,7 +2,13 @@ import React, { FC, useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Main } from './layout/Main'
 import { useModal } from './hooks/useModal'
-import { Content, NewUser, Modal } from './components'
+import {
+  Content,
+  Modal,
+  NewUser,
+  ProjectNotChosen,
+  ProjectNotFound,
+} from './components'
 import './App.scss'
 
 const App: FC = () => {
@@ -24,7 +30,9 @@ const App: FC = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Main />}>
+              <Route element={<ProjectNotChosen />} index />
               <Route path=":id" element={<Content />} />
+              <Route path="/project-not-found" element={<ProjectNotFound />} />
             </Route>
           </Routes>
           {!isPersist && (
