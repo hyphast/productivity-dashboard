@@ -1,4 +1,4 @@
-import { ref, set } from 'firebase/database'
+import { ref, update } from 'firebase/database'
 import { useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 import { ItemTypes, StageEnum, TTaskData } from '../Todos.types'
@@ -23,8 +23,7 @@ export const useDropArgs = (
       drop: (item: { id: number; stage: StageEnum }) => {
         taskData.map((t) => {
           if (t.id === item.id) {
-            set(ref(db, `projects/${id}/todos/${t.id}`), {
-              ...t,
+            update(ref(db, `projects/${id}/todos/${t.id}`), {
               stage,
             })
           }

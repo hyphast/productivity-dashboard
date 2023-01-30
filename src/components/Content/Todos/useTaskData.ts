@@ -37,5 +37,7 @@ export const useTaskData = (): UseTaskDataReturn => {
     })
   }, [taskData, search])
 
-  return [filteredTaskData, loading]
+  const reversedTaskData = filteredTaskData.reverse()
+
+  return [reversedTaskData, loading]
 }
