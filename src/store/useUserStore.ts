@@ -2,12 +2,31 @@ import create from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'
 import { IndicatorColorEnum } from '../components/ColoredCircle'
-import avatarImg0 from '../assets/img/avatars/ava0.png'
-import avatarImg1 from '../assets/img/avatars/ava.jpg'
-import avatarImg2 from '../assets/img/avatars/ava2.jpg'
-import avatarImg3 from '../assets/img/avatars/ava3.jpg'
+import avatar0 from '../assets/img/avatars/ava0.png'
+import avatar1 from '../assets/img/avatars/ava1.jpg'
+import avatar2 from '../assets/img/avatars/ava2.jpg'
+import avatar3 from '../assets/img/avatars/ava3.jpg'
+import avatar4 from '../assets/img/avatars/ava4.png'
+import avatar5 from '../assets/img/avatars/ava5.png'
+import avatar6 from '../assets/img/avatars/ava6.png'
+import avatar7 from '../assets/img/avatars/ava7.png'
+import avatar8 from '../assets/img/avatars/ava8.png'
+import avatar9 from '../assets/img/avatars/ava9.png'
+import avatar10 from '../assets/img/avatars/ava10.png'
 
-export const avatars = [avatarImg0, avatarImg1, avatarImg2, avatarImg3]
+export const avatars = [
+  avatar0,
+  avatar1,
+  avatar2,
+  avatar3,
+  avatar4,
+  avatar5,
+  avatar6,
+  avatar7,
+  avatar8,
+  avatar9,
+  avatar10,
+]
 
 function randIndicator() {
   const enumValues = Object.values(IndicatorColorEnum)

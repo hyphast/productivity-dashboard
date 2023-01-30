@@ -1,10 +1,11 @@
 import React, { FC } from 'react'
 import cn from 'classnames'
 import { useDrag } from 'react-dnd'
-import { useDragArgs } from './useDragArgs'
+import { useDragArgs } from './hooks/useDragArgs'
 import { PriorityEnum, TTaskData } from '../../Todos.types'
 import { Avatar } from '../../../../Avatar'
 import { DeleteButton } from '../../../../DeleteButton'
+import { useDeleteTask } from './hooks/useDeleteTask'
 import styles from './Task.module.scss'
 
 export type TTask = {
@@ -16,6 +17,8 @@ export const Task: FC<TTask> = ({ id, task }) => {
 
   const dragArgs = useDragArgs(id, stage)
   const [{ isDragging }, drag] = useDrag(() => dragArgs)
+
+  const [onDeleteTask] = useDeleteTask(id)
 
   return (
     <div
@@ -32,7 +35,7 @@ export const Task: FC<TTask> = ({ id, task }) => {
         >
           <span>{PriorityEnum[priority]}</span>
         </div>
-        <div className={styles.deleteBtn}>
+        <div className={styles.deleteBtn} onClick={onDeleteTask}>
           <DeleteButton />
         </div>
       </div>

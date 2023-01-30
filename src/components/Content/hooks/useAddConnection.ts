@@ -17,7 +17,7 @@ export const useAddConnection = (error: boolean) => {
   const userId = useUserStore((state) => state.user.id)
 
   useEffect(() => {
-    if (error) return
+    if (error || !id) return
     const myConnectionsRef = ref(db, `projects/${id}/connections`)
     const connectedRef = ref(db, '.info/connected')
     let con: ThenableReference | undefined

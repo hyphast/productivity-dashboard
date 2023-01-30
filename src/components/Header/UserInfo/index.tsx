@@ -1,6 +1,7 @@
 import React, { useCallback, useRef } from 'react'
 import cn from 'classnames'
 import { CSSTransition } from 'react-transition-group'
+import { useNavigate } from 'react-router-dom'
 import { useUserStore } from '../../../store/useUserStore'
 import { ReactComponent as ArrowIcon } from '../../../assets/img/icons/arrow.svg'
 import { ReactComponent as LogoutIcon } from '../../../assets/img/icons/logout.svg'
@@ -14,9 +15,11 @@ export const UserInfo = () => {
   const dropdownRef = useRef<HTMLDivElement>(null)
   const [isDropdownVisible, { toggleDropdown: onArrowClick }] =
     useDropdown(dropdownRef)
+  const navigate = useNavigate()
 
   const onLogoutClick = useCallback(() => {
     localStorage.removeItem('user-storage')
+    navigate('/')
     window.location.reload()
   }, [])
 
