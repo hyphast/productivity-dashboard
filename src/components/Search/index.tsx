@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from 'react'
 import cn from 'classnames'
 import { useForm } from 'react-hook-form'
-import { Input } from '../common/Input'
+import { Input } from '../common/Input/Input'
 import { useDebounce } from '../../hooks/useDebounce'
 import { ReactComponent as SearchIcon } from '../../assets/img/icons/search.svg'
 import { ReactComponent as ClearIcon } from '../../assets/img/icons/clear.svg'

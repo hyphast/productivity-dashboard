@@ -25,6 +25,7 @@ export const useDropArgs = (
           if (t.id === item.id) {
             update(ref(db, `projects/${id}/todos/${t.id}`), {
               stage,
+              updated: new Date().toISOString(),
             })
           }
           return t

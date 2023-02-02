@@ -16,14 +16,15 @@ export const useTaskDatabase = (): UseTaskDBReturn => {
 
   const createTask = useCallback(
     (projectData: INewTaskValues) => {
-      const { priority, title, desc } = projectData
+      const { priority, title, desc, date } = projectData
       set(push(ref(db, `projects/${id}/todos`)), {
         stage: 0,
         priority: Number(priority),
         title,
-        // date: data.date,
+        date: date ? new Date(date).toISOString() : '',
         desc,
         owner: userId,
+        updated: new Date().toISOString(),
       }).catch((e) => {
         setError('Some error')
       })

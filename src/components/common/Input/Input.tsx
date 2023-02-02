@@ -8,14 +8,14 @@ export const Input = React.forwardRef<
   React.InputHTMLAttributes<HTMLInputElement> &
     ReturnType<UseFormRegister<Record<string, string>>> &
     ChangeHandler
->(({ onChange, onBlur, name, className, placeholder }, ref) => (
+>(({ onChange, onBlur, name, className, placeholder, type }, ref) => (
   <input
     name={name}
     ref={ref}
     onChange={onChange}
     onBlur={onBlur}
-    className={cn(styles.root, className)}
+    className={cn(styles.input, className)}
     placeholder={placeholder}
-    type="text"
+    type={type}
   />
 ))

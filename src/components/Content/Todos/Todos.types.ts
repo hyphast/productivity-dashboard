@@ -23,8 +23,9 @@ export type TTaskData = {
   id: number
   stage: StageEnum
   priority: PriorityEnum
-  date: Date
+  date: string
   title: string
   desc: string
   owner: string
+  updated: string
 }

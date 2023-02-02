@@ -41,12 +41,14 @@ export const Task: FC<TTask> = ({ id, task }) => {
       </div>
       <div className={styles.taskMain}>
         <h5>{title}</h5>
-        {/*<div className={styles.date}>*/}
-        {/*  {new Intl.DateTimeFormat('en-GB', {*/}
-        {/*    dateStyle: 'full',*/}
-        {/*    timeStyle: 'short',*/}
-        {/*  }).format(date)}*/}
-        {/*</div>*/}
+        {date && (
+          <div className={styles.date}>
+            {new Intl.DateTimeFormat('ru', {
+              dateStyle: 'full',
+              timeStyle: 'short',
+            }).format(new Date(date))}
+          </div>
+        )}
         <div className={styles.desc}>{desc}</div>
       </div>
       <div className={styles.taskFooter}>

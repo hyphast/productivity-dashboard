@@ -37,7 +37,9 @@ export const useTaskData = (): UseTaskDataReturn => {
     })
   }, [taskData, search])
 
-  const reversedTaskData = filteredTaskData.reverse()
+  const reversedTaskData = filteredTaskData.sort(
+    (a, b) => new Date(b.updated).getTime() - new Date(a.updated).getTime()
+  )
 
   return [reversedTaskData, loading]
 }

@@ -1,8 +1,9 @@
 import React, { FC } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { INewUserValues } from './NewUser.types'
-import { Input } from '../../common/Input'
+import { Input } from '../../common/Input/Input'
 import { useUserDatabase } from './useUserDatabase'
+import newUserStyles from './NewUser.module.scss'
 import styles from '../ModalForms.module.scss'
 
 const nameConstraints = {
@@ -35,6 +36,7 @@ export const NewUser: FC<NewUserFormProps> = ({ handleClose }) => {
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <Input
+        className={newUserStyles.root}
         placeholder="Введите ваше имя"
         {...register('name', nameConstraints)}
       />

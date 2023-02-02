@@ -1,6 +1,8 @@
 import React, { FC } from 'react'
+import cn from 'classnames'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { Input } from '../../common/Input'
+import { Input } from '../../common/Input/Input'
+import { Textarea } from '../../common/Input/Textarea'
 import { INewTaskValues } from './NewTask.types'
 import { useTaskDatabase } from './useTaskDatabase'
 import modalStyles from '../ModalForms.module.scss'
@@ -68,12 +70,14 @@ export const NewTask: FC<NewTaskFormProps> = ({ handleClose }) => {
       </div>
       <Input placeholder="Заголовок" {...register('title', titleConstraints)} />
       {errors.title && (
-        <p className={modalStyles.errorMsg}>{errors.title.message}</p>
+        <p className={styles.errorMsg}>{errors.title.message}</p>
       )}
-      {/*<Input placeholder="Дата" {...register('date')} />*/}
-      <Input placeholder="Описание" {...register('desc', descConstraints)} />
+      <Input placeholder="Дата" type="datetime-local" {...register('date')} />
+      <Textarea placeholder="Описание" {...register('desc', descConstraints)} />
       {errors.desc && (
-        <p className={modalStyles.errorMsg}>{errors.desc.message}</p>
+        <p className={cn(styles.errorMsg, styles.descInputError)}>
+          {errors.desc.message}
+        </p>
       )}
       <button className={modalStyles.submit} type="submit">
         Принять

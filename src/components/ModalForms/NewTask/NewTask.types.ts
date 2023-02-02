@@ -6,6 +6,6 @@ enum Priority {
 export interface INewTaskValues {
   priority: Priority
   title: string
-  date: Date | string
+  date: string
   desc: string
 }

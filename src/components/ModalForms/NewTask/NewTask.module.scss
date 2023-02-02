@@ -42,3 +42,14 @@
     }
   }
 }
+
+.errorMsg {
+  position: relative;
+  top: -6px;
+  color: red;
+  font-size: 12px;
+}
+
+.descInputError {
+  top: 4px !important;
+}
