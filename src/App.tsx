@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { useMediaQuery } from 'react-responsive'
 import { Main } from './layout/Main'
 import { useModal } from './hooks/useModal'
 import {
@@ -15,6 +16,8 @@ const App: FC = () => {
   const { isOpen, handleClose } = useModal(true)
   const [isPersist, setIsPersist] = useState(false)
 
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
+
   useEffect(() => {
     const storage = localStorage.getItem('user-storage')
     if (!storage) return
@@ -22,6 +25,14 @@ const App: FC = () => {
       setIsPersist(true)
     }
   }, [])
+
+  if (isTabletOrMobile) {
+    return (
+      <h2 className="notSupported">
+        Не поддерживается на мобильных устройствах
+      </h2>
+    )
+  }
 
   return (
     <>

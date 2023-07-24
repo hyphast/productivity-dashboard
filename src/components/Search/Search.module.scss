@@ -1,5 +1,6 @@
 .root {
   position: relative;
+  width: fit-content;
 
   .findIcon {
     position: absolute;
@@ -11,9 +12,9 @@
     cursor: pointer;
     position: absolute;
     width: 20px;
+    top: 10px;
     height: 20px;
-    top: 12px;
-    left: 250px;
+    right: 10px;
     opacity: 50%;
 
     &:hover {

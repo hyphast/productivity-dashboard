@@ -23,7 +23,7 @@ export const Modal: FC<IModalProps> = ({
   const modalRef = useRef<HTMLDivElement>(null)
 
   const isClosable = handleClose
-
+  // TODO !!!!
   if (isClosable) {
     useClickOutside(modalRef, handleClose)
   }
