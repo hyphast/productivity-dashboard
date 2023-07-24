@@ -25,6 +25,5 @@ yarn-error.log*
 
 .env
 src/UseListTemp.tsx
-
 /.history
 .vscode

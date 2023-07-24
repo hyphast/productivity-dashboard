@@ -24,21 +24,21 @@
       background: rgba(223, 168, 116, 20%);
 
       span {
-        color: #D58D49;
+        color: #d58d49;
       }
     }
     .high {
       background: rgba(216, 114, 125, 10%);
 
       span {
-        color: #D8727D;
+        color: #d8727d;
       }
     }
     .completed {
       background: rgba(131, 194, 157, 20%);
 
       span {
-        color: #68B266;
+        color: #68b266;
       }
     }
 
@@ -78,8 +78,8 @@
     .ownerAvatar {
       display: flex;
       flex-direction: row;
-      justify-content: start;
-      align-items: end;
+      justify-content: flex-start;
+      align-items: flex-end;
 
       :global(.avatar__image) {
         width: 24px;
