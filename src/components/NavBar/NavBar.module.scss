@@ -1,4 +1,4 @@
-@use '../../commonStyles/colors' as *;
+@use '../../common-styles/colors' as *;
 
 .root {
   margin-top: 35px;
@@ -27,7 +27,8 @@
       &:hover {
         transform: scale(1.1);
 
-        :nth-child(1), :nth-child(2)   {
+        :nth-child(1),
+        :nth-child(2) {
           stroke: #5030e5;
         }
       }

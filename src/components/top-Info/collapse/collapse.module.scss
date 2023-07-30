@@ -1,0 +1,28 @@
+@use '../../../common-styles/colors' as *;
+
+.root {
+  display: flex;
+  position: relative;
+  align-self: center;
+  justify-self: center;
+  cursor: pointer;
+
+  .arrow {
+    width: 10px;
+    height: 10px;
+    border: 2px solid $secondary;
+    border-right: 0;
+    border-top: 0;
+    transform: rotate(45deg);
+  }
+
+  .secondArrow {
+    position: absolute;
+    left: 6px;
+  }
+}
+
+.expand {
+  transform: rotate(180deg);
+  left: 75px;
+}

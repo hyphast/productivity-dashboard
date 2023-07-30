@@ -1,4 +1,4 @@
-import { IndicatorColorEnum } from '../../ColoredCircle'
+import { IndicatorColorEnum } from '../../colored-circle'
 
 export const ItemTypes = {
   TASK: 'todos/task',

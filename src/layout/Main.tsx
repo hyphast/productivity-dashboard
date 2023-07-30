@@ -1,7 +1,7 @@
-import React, { FC, useState } from 'react'
+import { FC, useState } from 'react'
 import cn from 'classnames'
 import { Header, NavBar, Content, TopInfo } from '../components'
-import styles from './Main.module.scss'
+import styles from './main.module.scss'
 
 export const Main: FC = () => {
   const [navbarVisible, setNavbarVisible] = useState(true)
