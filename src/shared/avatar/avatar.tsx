@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import cn from 'classnames'
 
-import { AvatarLoader } from '../../components/loaders/avatar-loader'
+import { AvatarLoader } from '@/components/loaders/avatar-loader'
 import { useUserData } from './use-user-data'
 import './avatar.scss'
 

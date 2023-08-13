@@ -2,7 +2,7 @@ import { ref, update } from 'firebase/database'
 import { useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 import { ItemTypes, StageEnum, TTaskData } from '../todos.types'
-import { db } from '../../../../firebase'
+import { db } from '@/firebase'
 
 type UseDropArgsReturn = {
   accept: string

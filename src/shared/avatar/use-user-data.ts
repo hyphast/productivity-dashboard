@@ -1,7 +1,7 @@
 import { ref } from 'firebase/database'
-import { useObject } from '../../hooks/use-object'
-import { avatars } from '../../store/use-user-store'
-import { db } from '../../firebase'
+import { useObject } from '@/hooks/use-object'
+import { avatars } from '@/store/use-user-store'
+import { db } from '@/firebase'
 
 type UseUserDataReturn = [string, string, boolean]
 export const useUserData = (userId: string): UseUserDataReturn => {

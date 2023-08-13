@@ -4,8 +4,8 @@ import { ProjectInfo } from './project-info'
 import { Todos } from './todos'
 import { useAddLocalProject } from './hooks/use-add-local-project'
 import { useAddConnection } from './hooks/use-add-connection'
-import { ProjectNotChosen } from '../project-result/project-not-chosen'
-import { ProjectNotFound } from '../project-result/project-not-found'
+import { ProjectNotChosen } from '@/components//project-result/project-not-chosen'
+import { ProjectNotFound } from '@/components/project-result/project-not-found'
 import styles from './content.module.scss'
 
 export const Content: FC = () => {

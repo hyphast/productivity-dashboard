@@ -2,8 +2,8 @@ import { FC, PropsWithChildren, useRef } from 'react'
 import cn from 'classnames'
 import { CSSTransition } from 'react-transition-group'
 import { ReactPortal } from './react-portal'
-import { ReactComponent as CloseIcon } from '../../assets/images/icons/close.svg'
-import { useClickOutside } from '../../hooks/use-click-outside'
+import CloseIcon from '@/assets/images/icons/close.svg'
+import { useClickOutside } from '@/hooks/use-click-outside'
 import styles from './modal.module.scss'
 
 interface IModalProps extends PropsWithChildren {
@@ -23,7 +23,7 @@ export const Modal: FC<IModalProps> = ({
   const modalRef = useRef<HTMLDivElement>(null)
 
   const isClosable = handleClose
-  // TODO !!!!
+
   if (isClosable) {
     useClickOutside(modalRef, handleClose)
   }

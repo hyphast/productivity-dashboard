@@ -6,7 +6,7 @@ import React, {
   useEffect,
   useRef,
 } from 'react'
-import { useClickOutside } from '../../../../../hooks/use-click-outside'
+import { useClickOutside } from '@/hooks/use-click-outside'
 import styles from '../project-title.module.scss'
 
 type TitleInputProps = {

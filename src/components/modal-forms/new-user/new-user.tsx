@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { INewUserValues } from './new-user.types'
-import { Input } from '../../../shared/input/input'
+import { Input } from '@/shared/input/input'
 import { useUserDatabase } from './use-user-database'
 import newUserStyles from './new-user.module.scss'
 import styles from '../modal-forms.module.scss'

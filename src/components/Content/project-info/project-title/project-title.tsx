@@ -1,6 +1,6 @@
 import { FC } from 'react'
-import { ReactComponent as RenameIcon } from '../../../../assets/images/icons/rename.svg'
-import { ProjectNameLoader } from '../../../loaders/project-name-loader'
+import RenameIcon from '@/assets/images/icons/rename.svg'
+import { ProjectNameLoader } from '@/components/loaders/project-name-loader'
 import { TitleInput } from './title-input'
 import { useEditProjectName } from './hooks/use-edit-project-name'
 import { useProjectTitle } from './hooks/use-project-title'
@@ -33,7 +33,11 @@ export const ProjectTitle: FC<ProjectTitleProps> = ({ projectId }) => {
           <h1>{title}</h1>
         )}
         <div className={styles.iconsContainer}>
-          {!isEditable && <RenameIcon onClick={onRenameClick} />}
+          {!isEditable && (
+            <button type="button" onClick={onRenameClick}>
+              <RenameIcon />
+            </button>
+          )}
         </div>
       </div>
     </div>

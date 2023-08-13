@@ -1,10 +1,10 @@
 import React, { FC, useCallback, useMemo } from 'react'
 import { ref } from 'firebase/database'
 import { useLocation } from 'react-router-dom'
-import { db } from '../../../../firebase'
-import { useList } from '../../../../hooks/use-list'
-import { Avatar } from '../../../../shared/avatar'
-import { AvatarLoader } from '../../../loaders/avatar-loader'
+import { db } from '@/firebase'
+import { useList } from '@/hooks/use-list'
+import { Avatar } from '@/shared/avatar'
+import { AvatarLoader } from '@/components/loaders/avatar-loader'
 import styles from './project-members.module.scss'
 
 type ProjectMembersProps = {

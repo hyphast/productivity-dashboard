@@ -9,8 +9,8 @@ import {
   set,
   ThenableReference,
 } from 'firebase/database'
-import { db } from '../../../firebase'
-import { useUserStore } from '../../../store/use-user-store'
+import { useUserStore } from '@/store/use-user-store'
+import { db } from '@/firebase'
 
 export const useAddConnection = (error: boolean) => {
   const { id } = useParams()
@@ -30,10 +30,12 @@ export const useAddConnection = (error: boolean) => {
         set(con, userId)
       }
     })
+
     return () => {
       if (con) {
         set(con, null)
       }
+
       off(connectedRef)
     }
   }, [id, error, userId])

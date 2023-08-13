@@ -1,8 +1,8 @@
 import { useCallback, useState } from 'react'
 import { push, set } from 'firebase/database'
 import { useNavigate } from 'react-router-dom'
-import { projectsRef } from '../../firebase'
-import { useUserStore } from '../../store/use-user-store'
+import { projectsRef } from '@/firebase'
+import { useUserStore } from '@/store/use-user-store'
 
 type UseProjectReturn = [() => void, boolean, string | undefined]
 export const useProjectDatabase = (): UseProjectReturn => {

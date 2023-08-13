@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { MouseEvent, useCallback, useState } from 'react'
 import { ref, set } from 'firebase/database'
-import { db } from '../../../../../../firebase'
+import { db } from '@/firebase'
 
 type UseDeleteTaskReturn = [
   (event: MouseEvent<HTMLDivElement>) => void,

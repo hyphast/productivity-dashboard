@@ -1,5 +1,5 @@
 import { MouseEvent, RefObject, useMemo, useState } from 'react'
-import { useClickOutside } from '../../../../hooks/use-click-outside'
+import { useClickOutside } from '@/hooks/use-click-outside'
 
 type UseDropdownReturn = [
   boolean,

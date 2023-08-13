@@ -1,9 +1,9 @@
-import React, { FC, MouseEvent } from 'react'
+import { FC, MouseEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 import cn from 'classnames'
-import { ColoredCircle, IndicatorColorEnum } from '../../colored-circle'
-import { DeleteButton } from '../../delete-button'
-import { useUserStore } from '../../../store/use-user-store'
+import { ColoredCircle, IndicatorColorEnum } from '@/components/colored-circle'
+import { DeleteButton } from '@/components/delete-button'
+import { useUserStore } from '@/store/use-user-store'
 import styles from './project-item.module.scss'
 
 export type TProjectItem = {

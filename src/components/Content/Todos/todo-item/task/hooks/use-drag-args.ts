@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { ItemTypes, StageEnum } from '../../../todos.types'
+import { ItemTypes, StageEnum } from '@/components/content/todos/todos.types'
 
 type UseDragArgsReturn = {
   type: string

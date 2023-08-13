@@ -1,8 +1,8 @@
 import { ChangeEvent, useCallback, useEffect, useState } from 'react'
 import { ref } from 'firebase/database'
-import { useObject } from '../../../../../hooks/use-object'
-import { db } from '../../../../../firebase'
-import { useUserStore } from '../../../../../store/use-user-store'
+import { useObject } from '@/hooks/use-object'
+import { useUserStore } from '@/store/use-user-store'
+import { db } from '@/firebase'
 
 type UseProjectTitleReturn = [
   string,

@@ -1,15 +1,16 @@
 import { FC, MouseEvent } from 'react'
 import { useDrop } from 'react-dnd'
-import { ColoredCircle, IndicatorColorEnum } from '../../../colored-circle'
-import { ReactComponent as AddIcon } from '../../../../assets/images/icons/add.svg'
+import { ColoredCircle, IndicatorColorEnum } from '@/components/colored-circle'
+import AddIcon from '@/assets/images/icons/add.svg'
 import { Task } from './task'
 import { Overlay } from './overlay'
-import { Modal } from '../../../../shared/modal'
-import { useModal } from '../../../../hooks/use-modal'
-import { NewTask } from '../../../modal-forms/new-task'
-import { TodoLoader } from '../../../loaders/todo-loader'
+import { Modal } from '@/shared/modal'
+import { useModal } from '@/hooks/use-modal'
+import { NewTask } from '@/components/modal-forms/new-task'
+import { TodoLoader } from '@/components/loaders/todo-loader'
 import { useDropArgs } from './use-drop-args'
 import { StageEnum, TTaskData } from '../todos.types'
+
 import styles from './todo-item.module.scss'
 
 const stageTitles = [
@@ -63,7 +64,13 @@ export const TodoItem: FC<TTodoItem> = ({
         <div className={styles.count}>{stageTasks.length}</div>
         {stage === StageEnum.ToDo && (
           <>
-            <AddIcon onClick={onNewTask} className={styles.addTaskIcon} />
+            <button
+              type="button"
+              onClick={onNewTask}
+              className={styles.addTaskIcon}
+            >
+              <AddIcon />
+            </button>
             <Modal
               handleClose={handleClose}
               isOpen={isOpen}

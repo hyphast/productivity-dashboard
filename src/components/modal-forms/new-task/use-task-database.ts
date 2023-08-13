@@ -2,8 +2,8 @@ import { useCallback, useState } from 'react'
 import { push, ref, set } from 'firebase/database'
 import { useParams } from 'react-router-dom'
 import { INewTaskValues } from './new-task.types'
-import { useUserStore } from '../../../store/use-user-store'
-import { db } from '../../../firebase'
+import { useUserStore } from '@/store/use-user-store'
+import { db } from '@/firebase'
 
 type UseTaskDBReturn = [
   (projectData: INewTaskValues) => void,

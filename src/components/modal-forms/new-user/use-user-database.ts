@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react'
 import { push, set } from 'firebase/database'
-import { avatars, useUserStore } from '../../../store/use-user-store'
-import { usersRef } from '../../../firebase'
+import { avatars, useUserStore } from '@/store/use-user-store'
+import { usersRef } from '@/firebase'
 
 type UseUserDBReturn = [(name: string) => void, string | undefined]
 export const useUserDatabase = (): UseUserDBReturn => {

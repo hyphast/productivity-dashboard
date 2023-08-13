@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { ReactComponent as NotChosen } from '../../assets/images/icons/not-chosen.svg'
+import NotChosen from '@/assets/images/icons/not-chosen.svg'
 import styles from './project-result.module.scss'
 
 export const ProjectNotChosen: FC = () => {

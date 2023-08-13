@@ -1,10 +1,10 @@
 import { useParams } from 'react-router-dom'
 import { ref } from 'firebase/database'
 import { useMemo } from 'react'
-import { useList } from '../../../hooks/use-list'
+import { useList } from '@/hooks/use-list'
 import { TTaskData } from './todos.types'
-import { useUserStore } from '../../../store/use-user-store'
-import { db } from '../../../firebase'
+import { useUserStore } from '@/store/use-user-store'
+import { db } from '@/firebase'
 
 const quote = (str: string) => {
   return str.replace(/([.?*+^$[\]\\(){}|-])/g, '\\$1')

@@ -7,8 +7,8 @@ import React, {
 } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 import { ref, update } from 'firebase/database'
-import { db } from '../../../../../firebase'
-import { useUserStore } from '../../../../../store/use-user-store'
+import { db } from '@/firebase'
+import { useUserStore } from '@/store/use-user-store'
 
 type UseEditProjectNameReturn = [
   {
