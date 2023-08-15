@@ -1,8 +1,9 @@
-import React, { FC, useCallback, useMemo } from 'react'
+import { FC, useCallback, useMemo } from 'react'
+import { useList } from 'react-firebase-hooks/database'
 import { ref } from 'firebase/database'
 import { useLocation } from 'react-router-dom'
+
 import { db } from '@/firebase'
-import { useList } from '@/hooks/use-list'
 import { Avatar } from '@/shared/avatar'
 import { AvatarLoader } from '@/components/loaders/avatar-loader'
 import styles from './project-members.module.scss'
@@ -10,10 +11,11 @@ import styles from './project-members.module.scss'
 type ProjectMembersProps = {
   projectId: string
 }
+
 export const ProjectMembers: FC<ProjectMembersProps> = ({ projectId }) => {
   const location = useLocation()
   const [snapshots, loading] = useList(
-    ref(db, `projects/${projectId}/connections`)
+    ref(db, `projects/${projectId}/connections`),
   )
 
   const inviteLink = process.env.REACT_APP_URL + location.pathname
@@ -24,7 +26,7 @@ export const ProjectMembers: FC<ProjectMembersProps> = ({ projectId }) => {
 
   const connected = useMemo(
     () => (snapshots ? snapshots.length : 0),
-    [snapshots]
+    [snapshots],
   )
 
   return (

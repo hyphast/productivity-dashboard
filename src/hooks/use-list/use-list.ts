@@ -33,7 +33,7 @@ export const useList = (query: Query): UseListReturn => {
 
     const onChildAdded = (
       snapshot: DataSnapshot,
-      previousKey?: string | null
+      previousKey?: string | null,
     ) => {
       dispatch({ type: 'add', previousKey, snapshot })
     }
@@ -44,7 +44,7 @@ export const useList = (query: Query): UseListReturn => {
 
     const onChildMoved = (
       snapshot: DataSnapshot,
-      previousKey?: string | null
+      previousKey?: string | null,
     ) => {
       dispatch({ type: 'move', previousKey, snapshot })
     }
@@ -75,7 +75,7 @@ export const useList = (query: Query): UseListReturn => {
 
         const onChildAddedWithoutInitialLoad = (
           addedChild: DataSnapshot,
-          previousKey?: string | null
+          previousKey?: string | null,
         ) => {
           if (childrenToProcess > 0) {
             childrenToProcess -= 1

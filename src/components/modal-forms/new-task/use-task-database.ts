@@ -7,7 +7,7 @@ import { db } from '@/firebase'
 
 type UseTaskDBReturn = [
   (projectData: INewTaskValues) => void,
-  string | undefined
+  string | undefined,
 ]
 export const useTaskDatabase = (): UseTaskDBReturn => {
   const { id } = useParams()
@@ -29,7 +29,7 @@ export const useTaskDatabase = (): UseTaskDBReturn => {
         setError('Some error')
       })
     },
-    [userId]
+    [userId],
   )
 
   return [createTask, error]

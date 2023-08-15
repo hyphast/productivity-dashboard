@@ -12,7 +12,7 @@ type UseDropArgsReturn = {
 }
 export const useDropArgs = (
   stage: StageEnum,
-  taskData: TTaskData[]
+  taskData: TTaskData[],
 ): UseDropArgsReturn => {
   const { id } = useParams()
 
@@ -36,7 +36,7 @@ export const useDropArgs = (
         canDrop: !!monitor.canDrop(),
       }),
     }),
-    [stage, taskData, id]
+    [stage, taskData, id],
   )
 
   return dropArgs

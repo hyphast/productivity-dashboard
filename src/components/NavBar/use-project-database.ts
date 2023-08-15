@@ -11,8 +11,8 @@ export const useProjectDatabase = (): UseProjectReturn => {
   const navigate = useNavigate()
   const sameName = useUserStore((state) =>
     state.projects.filter(
-      (item) => item.name.replace(/\s\(\d+\)/, '') === 'New Project'
-    )
+      (item) => item.name.replace(/\s\(\d+\)/, '') === 'New Project',
+    ),
   )
 
   const createProject = useCallback(() => {

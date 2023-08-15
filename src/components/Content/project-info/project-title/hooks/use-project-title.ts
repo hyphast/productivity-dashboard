@@ -1,13 +1,14 @@
 import { ChangeEvent, useCallback, useEffect, useState } from 'react'
+import { useObject } from 'react-firebase-hooks/database'
 import { ref } from 'firebase/database'
-import { useObject } from '@/hooks/use-object'
+
 import { useUserStore } from '@/store/use-user-store'
 import { db } from '@/firebase'
 
 type UseProjectTitleReturn = [
   string,
   boolean,
-  (event: ChangeEvent<HTMLInputElement>) => void
+  (event: ChangeEvent<HTMLInputElement>) => void,
 ]
 export const useProjectTitle = (projectId: string): UseProjectTitleReturn => {
   const [snapshot, loading, error] = useObject(ref(db, `projects/${projectId}`))

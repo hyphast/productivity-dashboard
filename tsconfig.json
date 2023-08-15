@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
+    "outDir": "./dist",
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -17,13 +18,16 @@
     "typeRoots": ["./node_modules/@types", "./src/@types"],
     "plugins": [
       {
-        "name": "typescript-plugin-css-modules"
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "classnameTransform": "camelCase"
+        }
       }
     ],
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-  "exclude": ["node_modules", "src/**/*.test.ts"],
-  "include": ["./src/**/*"]
+  "exclude": ["node_modules", "dist", "src/**/*.test.ts"],
+  "include": ["src/**/*", "config", "postcss.config.js", "babel.config.js"]
 }

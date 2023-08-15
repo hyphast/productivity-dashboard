@@ -3,16 +3,15 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
 
-  .projectTitle {
+  .project-title {
     grid-column: 1;
     grid-row: 1;
   }
 
-  .projectMembers {
+  .project-members {
     grid-column: 2;
     grid-row: 1;
     justify-self: end;
     align-self: center;
   }
 }
-

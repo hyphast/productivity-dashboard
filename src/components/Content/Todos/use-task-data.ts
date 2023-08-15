@@ -1,7 +1,8 @@
+import { useMemo } from 'react'
+import { useList } from 'react-firebase-hooks/database'
 import { useParams } from 'react-router-dom'
 import { ref } from 'firebase/database'
-import { useMemo } from 'react'
-import { useList } from '@/hooks/use-list'
+
 import { TTaskData } from './todos.types'
 import { useUserStore } from '@/store/use-user-store'
 import { db } from '@/firebase'
@@ -11,20 +12,20 @@ const quote = (str: string) => {
 }
 
 type UseTaskDataReturn = [TTaskData[], boolean]
+
 export const useTaskData = (): UseTaskDataReturn => {
   const { id } = useParams()
   const [snapshots, loading] = useList(ref(db, `projects/${id}/todos`))
   const search = useUserStore((state) => state.search)
 
-  const taskData = useMemo(
-    () =>
-      snapshots &&
-      snapshots.map((v) => ({
-        id: v.key,
-        ...v.val(),
-      })),
-    [snapshots]
-  )
+  const taskData = useMemo<TTaskData[]>(() => {
+    return snapshots
+      ? snapshots.map((v) => ({
+          id: v.key,
+          ...v.val(),
+        }))
+      : []
+  }, [snapshots])
 
   const filteredTaskData = useMemo(() => {
     const reg = new RegExp(quote(search), 'i')
@@ -38,7 +39,7 @@ export const useTaskData = (): UseTaskDataReturn => {
   }, [taskData, search])
 
   const reversedTaskData = filteredTaskData.sort(
-    (a, b) => new Date(b.updated).getTime() - new Date(a.updated).getTime()
+    (a, b) => new Date(b.updated).getTime() - new Date(a.updated).getTime(),
   )
 
   return [reversedTaskData, loading]

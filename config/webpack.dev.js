@@ -26,7 +26,6 @@ module.exports = merge(commonConfig, {
               importLoaders: 2,
               sourceMap: true,
               modules: {
-                mode: 'local',
                 auto: /\.module\.\w+$/i,
                 exportGlobals: true,
                 localIdentName: '[path][name]__[local]--[hash:base64:5]',

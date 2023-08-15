@@ -1,5 +1,5 @@
 import { ref } from 'firebase/database'
-import { useObject } from '@/hooks/use-object'
+import { useObject } from 'react-firebase-hooks/database'
 import { avatars } from '@/store/use-user-store'
 import { db } from '@/firebase'
 

@@ -1,13 +1,13 @@
-import React from 'react'
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 import { IndicatorColorEnum } from '@/components/colored-circle'
 import { TodoItem } from './todo-item'
 import { StageEnum, TTodo } from './todos.types'
 import { useTaskData } from './use-task-data'
+
 import styles from './todos.module.scss'
 
-const todosSkeleton: TTodo[] = [
+const TODOS_SKELETON: TTodo[] = [
   {
     id: 0,
     stage: StageEnum.ToDo,
@@ -24,13 +24,14 @@ const todosSkeleton: TTodo[] = [
     indicatorColor: IndicatorColorEnum.blue,
   },
 ]
+
 export const Todos = () => {
   const [taskData, loading] = useTaskData()
 
   return (
     <DndProvider backend={HTML5Backend}>
       <div className={styles.root}>
-        {todosSkeleton.map((todo) => (
+        {TODOS_SKELETON.map((todo) => (
           <TodoItem
             key={todo.id}
             stage={todo.stage}

@@ -43,7 +43,7 @@ export const UserInfo = () => {
         ref={dropdownRef}
         className={cn(
           { [styles.dropdownHidden]: !isDropdownVisible },
-          styles.dropdown
+          styles.dropdown,
         )}
       >
         <button type="button" onClick={onLogoutClick}>

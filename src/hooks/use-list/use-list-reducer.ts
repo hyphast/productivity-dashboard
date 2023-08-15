@@ -54,7 +54,7 @@ const setValue = (snapshots: DataSnapshot[]): Value => {
 const addChild = (
   currentState: Value,
   snapshot: DataSnapshot,
-  previousKey?: string | null
+  previousKey?: string | null,
 ): Value => {
   if (!snapshot.key) {
     return currentState
@@ -111,7 +111,7 @@ const removeChild = (currentState: Value, snapshot: DataSnapshot): Value => {
 const moveChild = (
   currentState: Value,
   snapshot: DataSnapshot,
-  previousKey?: string | null
+  previousKey?: string | null,
 ): Value => {
   const tempValue = removeChild(currentState, snapshot)
   return addChild(tempValue, snapshot, previousKey)

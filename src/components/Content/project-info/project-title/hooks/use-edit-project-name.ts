@@ -17,11 +17,11 @@ type UseEditProjectNameReturn = [
   },
   { onToggleMode: (event: MouseEvent) => void },
   () => void,
-  string | undefined
+  string | undefined,
 ]
 export const useEditProjectName = (
   projectId: string,
-  title: string
+  title: string,
 ): UseEditProjectNameReturn => {
   const { id } = useParams()
   const location = useLocation()
@@ -67,7 +67,7 @@ export const useEditProjectName = (
         }
       },
     }),
-    [isEditable, setNewProjectName]
+    [isEditable, setNewProjectName],
   )
 
   return [{ isEditable, setIsEditable }, handlers, setNewProjectName, error]

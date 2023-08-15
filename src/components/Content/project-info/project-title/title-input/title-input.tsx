@@ -41,7 +41,7 @@ export const TitleInput: FC<TitleInputProps> = ({
         setIsEditable(false)
       }
     },
-    [setNewProjectName]
+    [setNewProjectName],
   )
 
   return (

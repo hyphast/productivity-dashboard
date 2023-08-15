@@ -5,7 +5,7 @@ import { db } from '@/firebase'
 
 type UseDeleteTaskReturn = [
   (event: MouseEvent<HTMLDivElement>) => void,
-  string | undefined
+  string | undefined,
 ]
 export const useDeleteTask = (id: number): UseDeleteTaskReturn => {
   const { id: projectId } = useParams()
@@ -15,10 +15,10 @@ export const useDeleteTask = (id: number): UseDeleteTaskReturn => {
     (event: MouseEvent<HTMLDivElement>) => {
       event.stopPropagation()
       set(ref(db, `projects/${projectId}/todos/${id}`), null).catch((e) =>
-        setError('Delete task error')
+        setError('Delete task error'),
       )
     },
-    [projectId, id]
+    [projectId, id],
   )
 
   return [onDeleteTask, error]

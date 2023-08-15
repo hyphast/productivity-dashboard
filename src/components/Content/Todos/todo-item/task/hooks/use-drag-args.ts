@@ -8,7 +8,7 @@ type UseDragArgsReturn = {
 }
 export const useDragArgs = (
   id: number,
-  stage: StageEnum
+  stage: StageEnum,
 ): UseDragArgsReturn => {
   const dragArgs = useMemo(
     () => ({
@@ -18,7 +18,7 @@ export const useDragArgs = (
         isDragging: !!monitor.isDragging(),
       }),
     }),
-    [id, stage]
+    [id, stage],
   )
 
   return dragArgs

@@ -76,7 +76,7 @@ export const useUserStore = create<IUserState>()(
             set(
               produce<IUserState>((state) => {
                 state.projects[projectExistId].name = name
-              })
+              }),
             )
           }
         },
@@ -86,7 +86,7 @@ export const useUserStore = create<IUserState>()(
             set(
               produce<IUserState>((state) => {
                 state.projects[projectExistId].name = name
-              })
+              }),
             )
           } else {
             set(
@@ -96,7 +96,7 @@ export const useUserStore = create<IUserState>()(
                   name,
                   indicator: randIndicator(),
                 })
-              })
+              }),
             )
           }
         },
@@ -107,7 +107,7 @@ export const useUserStore = create<IUserState>()(
       }),
       {
         name: 'user-storage',
-      }
-    )
-  )
+      },
+    ),
+  ),
 )

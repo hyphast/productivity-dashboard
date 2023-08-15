@@ -6,10 +6,10 @@ type UseDropdownReturn = [
   {
     closeDropdown: () => void
     toggleDropdown: (event: MouseEvent) => void
-  }
+  },
 ]
 export const useDropdown = (
-  dropdownRef: RefObject<HTMLElement>
+  dropdownRef: RefObject<HTMLElement>,
 ): UseDropdownReturn => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false)
 
@@ -23,7 +23,7 @@ export const useDropdown = (
         setIsDropdownVisible((prev) => !prev)
       },
     }),
-    []
+    [],
   )
 
   useClickOutside(dropdownRef, handlers.closeDropdown)
