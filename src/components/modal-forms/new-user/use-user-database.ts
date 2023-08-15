@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react'
 import { push, set } from 'firebase/database'
-import { avatars, useUserStore } from '../../../store/use-user-store'
-import { usersRef } from '../../../firebase'
+import { avatars, useUserStore } from '@/store/use-user-store'
+import { usersRef } from '@/firebase'
 
 type UseUserDBReturn = [(name: string) => void, string | undefined]
 export const useUserDatabase = (): UseUserDBReturn => {
@@ -16,7 +16,7 @@ export const useUserDatabase = (): UseUserDBReturn => {
         if (!pRef.key) return
         setUser(pRef.key, name, avatarIdx)
       })
-      .catch((e) => {
+      .catch(() => {
         setError('Create user error')
       })
   }, [])

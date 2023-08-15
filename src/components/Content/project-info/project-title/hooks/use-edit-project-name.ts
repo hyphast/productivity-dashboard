@@ -1,14 +1,8 @@
-import React, {
-  MouseEvent,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react'
+import React, { MouseEvent, useCallback, useEffect, useMemo, useState } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 import { ref, update } from 'firebase/database'
-import { db } from '../../../../../firebase'
-import { useUserStore } from '../../../../../store/use-user-store'
+import { db } from '@/firebase'
+import { useUserStore } from '@/store/use-user-store'
 
 type UseEditProjectNameReturn = [
   {
@@ -17,12 +11,9 @@ type UseEditProjectNameReturn = [
   },
   { onToggleMode: (event: MouseEvent) => void },
   () => void,
-  string | undefined
+  string | undefined,
 ]
-export const useEditProjectName = (
-  projectId: string,
-  title: string
-): UseEditProjectNameReturn => {
+export const useEditProjectName = (projectId: string, title: string): UseEditProjectNameReturn => {
   const { id } = useParams()
   const location = useLocation()
   const renameProject = useUserStore((state) => state.renameProject)
@@ -50,7 +41,7 @@ export const useEditProjectName = (
       .then(() => {
         renameProject(projectId, title)
       })
-      .catch((e) => {
+      .catch(() => {
         setError('Rename project error')
       })
   }, [title, projectId])
@@ -67,7 +58,7 @@ export const useEditProjectName = (
         }
       },
     }),
-    [isEditable, setNewProjectName]
+    [isEditable, setNewProjectName],
   )
 
   return [{ isEditable, setIsEditable }, handlers, setNewProjectName, error]

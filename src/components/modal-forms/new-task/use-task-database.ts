@@ -1,14 +1,11 @@
 import { useCallback, useState } from 'react'
 import { push, ref, set } from 'firebase/database'
 import { useParams } from 'react-router-dom'
+import { useUserStore } from '@/store/use-user-store'
+import { db } from '@/firebase'
 import { INewTaskValues } from './new-task.types'
-import { useUserStore } from '../../../store/use-user-store'
-import { db } from '../../../firebase'
 
-type UseTaskDBReturn = [
-  (projectData: INewTaskValues) => void,
-  string | undefined
-]
+type UseTaskDBReturn = [(projectData: INewTaskValues) => void, string | undefined]
 export const useTaskDatabase = (): UseTaskDBReturn => {
   const { id } = useParams()
   const [error, setError] = useState<string | undefined>(undefined)
@@ -25,11 +22,11 @@ export const useTaskDatabase = (): UseTaskDBReturn => {
         desc,
         owner: userId,
         updated: new Date().toISOString(),
-      }).catch((e) => {
+      }).catch(() => {
         setError('Some error')
       })
     },
-    [userId]
+    [userId],
   )
 
   return [createTask, error]

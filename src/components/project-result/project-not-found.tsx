@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { ReactComponent as NotFoundIcon } from '../../assets/images/icons/not-found.svg'
+import NotFoundIcon from '@/assets/images/icons/not-found.svg'
 import styles from './project-result.module.scss'
 
 export const ProjectNotFound: FC = () => {

@@ -4,7 +4,7 @@
   grid-template-columns: 1fr 280px;
   grid-template-rows: 1fr;
 
-  .searchWrapper {
+  .search-wrapper {
     width: 100%;
     position: relative;
 
@@ -13,7 +13,7 @@
     }
   }
 
-  .userInfo {
+  .user-info {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;

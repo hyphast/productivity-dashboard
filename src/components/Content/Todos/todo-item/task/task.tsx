@@ -1,10 +1,10 @@
 import { FC } from 'react'
 import cn from 'classnames'
 import { useDrag } from 'react-dnd'
+import { PriorityEnum, TTaskData } from '@/components/content/todos/todos.types'
+import { Avatar } from '@/shared/avatar'
+import { DeleteButton } from '@/components/delete-button'
 import { useDragArgs } from './hooks/use-drag-args'
-import { PriorityEnum, TTaskData } from '../../todos.types'
-import { Avatar } from '../../../../../shared/avatar'
-import { DeleteButton } from '../../../../delete-button'
 import { useDeleteTask } from './hooks/use-delete-task'
 import styles from './task.module.scss'
 
@@ -21,10 +21,7 @@ export const Task: FC<TTask> = ({ id, task }) => {
   const [onDeleteTask] = useDeleteTask(id)
 
   return (
-    <div
-      ref={drag}
-      className={cn(styles.root, { [styles.dragging]: isDragging })}
-    >
+    <div ref={drag} className={cn(styles.root, { [styles.dragging]: isDragging })}>
       <div className={styles.taskHeader}>
         <div
           className={cn(styles.priority, {
@@ -35,9 +32,9 @@ export const Task: FC<TTask> = ({ id, task }) => {
         >
           <span>{PriorityEnum[priority]}</span>
         </div>
-        <div className={styles.deleteBtn} onClick={onDeleteTask}>
+        <button className={styles.deleteBtn} type="button" onClick={onDeleteTask}>
           <DeleteButton />
-        </div>
+        </button>
       </div>
       <div className={styles.taskMain}>
         <h5>{title}</h5>

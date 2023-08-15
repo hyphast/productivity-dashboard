@@ -15,26 +15,26 @@
 
   .low {
     label {
-      background: rgba(223, 168, 116, 20%);
-      color: #D58D49;
+      background: rgb(223 168 116 / 20%);
+      color: #d58d49;
     }
   }
 
   .high {
     label {
-      background: rgba(216, 114, 125, 10%);
-      color: #D8727D;
+      background: rgb(216 114 125 / 10%);
+      color: #d8727d;
     }
   }
 
   .completed {
     label {
-      background: rgba(131, 194, 157, 20%);
-      color: #68B266;
+      background: rgb(131 194 157 / 20%);
+      color: #68b266;
     }
   }
 
-  input[type=radio] {
+  input[type='radio'] {
     display: none;
 
     &:checked + label {
@@ -43,13 +43,13 @@
   }
 }
 
-.errorMsg {
+.error-msg {
   position: relative;
   top: -6px;
   color: red;
   font-size: 12px;
 }
 
-.descInputError {
+.desc-input-error {
   top: 4px !important;
 }

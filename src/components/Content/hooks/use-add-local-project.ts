@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { child, get, ref } from 'firebase/database'
 import { useParams } from 'react-router-dom'
-import { useUserStore } from '../../../store/use-user-store'
-import { db } from '../../../firebase'
+import { useUserStore } from '@/store/use-user-store'
+import { db } from '@/firebase'
 
 type UseLocalProjectReturn = [boolean]
 export const useAddLocalProject = (): UseLocalProjectReturn => {
@@ -20,9 +20,10 @@ export const useAddLocalProject = (): UseLocalProjectReturn => {
           setError(true)
         }
       })
-      .catch((e) => {
+      .catch(() => {
         setError(true)
       })
+
     return () => {
       setError(false)
     }

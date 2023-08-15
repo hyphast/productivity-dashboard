@@ -1,8 +1,8 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import cn from 'classnames'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { Input } from '../../../shared/input/input'
-import { Textarea } from '../../../shared/input/textarea'
+import { Input } from '@/shared/input/input'
+import { Textarea } from '@/shared/input/textarea'
 import { INewTaskValues } from './new-task.types'
 import { useTaskDatabase } from './use-task-database'
 import modalStyles from '../modal-forms.module.scss'
@@ -28,6 +28,7 @@ const descConstraints = {
 type NewTaskFormProps = {
   handleClose: () => void
 }
+
 export const NewTask: FC<NewTaskFormProps> = ({ handleClose }) => {
   const {
     register,
@@ -45,13 +46,7 @@ export const NewTask: FC<NewTaskFormProps> = ({ handleClose }) => {
     <form className={modalStyles.form} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.priority}>
         <div className={styles.low}>
-          <input
-            type="radio"
-            id="low"
-            value={0}
-            {...register('priority')}
-            defaultChecked
-          />
+          <input type="radio" id="low" value={0} {...register('priority')} defaultChecked />
           <label htmlFor="low">Low</label>
         </div>
         <div className={styles.high}>
@@ -59,26 +54,15 @@ export const NewTask: FC<NewTaskFormProps> = ({ handleClose }) => {
           <label htmlFor="high">High</label>
         </div>
         <div className={styles.completed}>
-          <input
-            type="radio"
-            id="completed"
-            value={2}
-            {...register('priority')}
-          />
+          <input type="radio" id="completed" value={2} {...register('priority')} />
           <label htmlFor="completed">Completed</label>
         </div>
       </div>
       <Input placeholder="Заголовок" {...register('title', titleConstraints)} />
-      {errors.title && (
-        <p className={styles.errorMsg}>{errors.title.message}</p>
-      )}
+      {errors.title && <p className={styles.errorMsg}>{errors.title.message}</p>}
       <Input placeholder="Дата" type="datetime-local" {...register('date')} />
       <Textarea placeholder="Описание" {...register('desc', descConstraints)} />
-      {errors.desc && (
-        <p className={cn(styles.errorMsg, styles.descInputError)}>
-          {errors.desc.message}
-        </p>
-      )}
+      {errors.desc && <p className={cn(styles.errorMsg, styles.descInputError)}>{errors.desc.message}</p>}
       <button className={modalStyles.submit} type="submit">
         Принять
       </button>

@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { avatars, useUserStore } from '../../../../store/use-user-store'
+import { avatars, useUserStore } from '@/store/use-user-store'
 
 type UseAvatarReturn = [avatar: string]
 export const useAvatar = (): UseAvatarReturn => {

@@ -4,12 +4,10 @@
     "es2021": true,
     "jest": true
   },
-  "extends": [
-    "plugin:react/recommended",
-    "airbnb",
-    "airbnb-typescript",
-    "plugin:prettier/recommended"
-  ],
+  "globals": {
+    "window": true
+  },
+  "extends": ["plugin:react/recommended", "airbnb", "airbnb-typescript", "plugin:prettier/recommended"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -19,28 +17,57 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "alias": {
+        "map": [["@", "./src"]],
+        "extensions": [".ts", ".tsx", ".js", ".json"]
+      }
+    }
+  },
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
     "semi": "off",
     "react/prop-types": "off",
-    "react/jsx-filename-extension": "off",
-    "react/function-component-definition": "off",
-    "react/jsx-props-no-spreading": "off",
-    "no-unused-vars": "warn",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".tsx"]
+      }
+    ],
+    "react/function-component-definition": ["error", { "namedComponents": "arrow-function" }],
+    "react/jsx-props-no-spreading": "warn",
     "react/no-array-index-key": "warn",
-    "import/prefer-default-export": "off",
-    "no-param-reassign": "off",
+    "react/jsx-no-useless-fragment": ["error", { "allowExpressions": true }],
+    "react/react-in-jsx-scope": "off",
     "jsx-a11y/no-noninteractive-element-interactions": "warn",
     "jsx-a11y/click-events-have-key-events": "warn",
-    "spaced-comment": "off",
-    "@typescript-eslint/no-unused-vars": "warn",
-    "no-else-return": "warn",
-    "import/no-extraneous-dependencies": "warn",
-    "react/jsx-no-useless-fragment": "warn",
     "jsx-a11y/label-has-associated-control": "warn",
-    "no-nested-ternary": "warn",
-    "jsx-a11y/no-static-element-interactions": "warn",
-    "consistent-return": "warn",
-    "react/react-in-jsx-scope": "off"
+    "jsx-a11y/no-static-element-interactions": [
+      "error",
+      {
+        "handlers": ["onClick", "onMouseDown", "onMouseUp", "onKeyPress", "onKeyDown", "onKeyUp"],
+        "allowExpressionValues": true
+      }
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      { "devDependencies": false, "optionalDependencies": false, "peerDependencies": false }
+    ],
+    "consistent-return": "warn"
   }
 }

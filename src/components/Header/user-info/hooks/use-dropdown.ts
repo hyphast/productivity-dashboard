@@ -1,16 +1,14 @@
 import { MouseEvent, RefObject, useMemo, useState } from 'react'
-import { useClickOutside } from '../../../../hooks/use-click-outside'
+import { useClickOutside } from '@/hooks/use-click-outside'
 
 type UseDropdownReturn = [
   boolean,
   {
     closeDropdown: () => void
     toggleDropdown: (event: MouseEvent) => void
-  }
+  },
 ]
-export const useDropdown = (
-  dropdownRef: RefObject<HTMLElement>
-): UseDropdownReturn => {
+export const useDropdown = (dropdownRef: RefObject<HTMLElement>): UseDropdownReturn => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false)
 
   const handlers = useMemo(
@@ -23,7 +21,7 @@ export const useDropdown = (
         setIsDropdownVisible((prev) => !prev)
       },
     }),
-    []
+    [],
   )
 
   useClickOutside(dropdownRef, handlers.closeDropdown)

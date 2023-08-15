@@ -1,15 +1,16 @@
 import { FC, MouseEvent } from 'react'
 import { useDrop } from 'react-dnd'
-import { ColoredCircle, IndicatorColorEnum } from '../../../colored-circle'
-import { ReactComponent as AddIcon } from '../../../../assets/images/icons/add.svg'
-import { Task } from './task'
+import { ColoredCircle, IndicatorColorEnum } from '@/components/colored-circle'
+import AddIcon from '@/assets/images/icons/add.svg'
+import { Modal } from '@/shared/modal'
+import { useModal } from '@/hooks/use-modal'
+import { NewTask } from '@/components/modal-forms/new-task'
+import { TodoLoader } from '@/components/loaders/todo-loader'
 import { Overlay } from './overlay'
-import { Modal } from '../../../../shared/modal'
-import { useModal } from '../../../../hooks/use-modal'
-import { NewTask } from '../../../modal-forms/new-task'
-import { TodoLoader } from '../../../loaders/todo-loader'
+import { Task } from './task'
 import { useDropArgs } from './use-drop-args'
 import { StageEnum, TTaskData } from '../todos.types'
+
 import styles from './todo-item.module.scss'
 
 const stageTitles = [
@@ -32,12 +33,7 @@ export type TTodoItem = {
   taskData: TTaskData[]
   loading: boolean
 }
-export const TodoItem: FC<TTodoItem> = ({
-  stage,
-  indicatorColor,
-  taskData,
-  loading,
-}) => {
+export const TodoItem: FC<TTodoItem> = ({ stage, indicatorColor, taskData, loading }) => {
   const dropArgs = useDropArgs(stage, taskData)
   const [{ isOver, canDrop }, drop] = useDrop(dropArgs, [stage, taskData])
 
@@ -63,29 +59,18 @@ export const TodoItem: FC<TTodoItem> = ({
         <div className={styles.count}>{stageTasks.length}</div>
         {stage === StageEnum.ToDo && (
           <>
-            <AddIcon onClick={onNewTask} className={styles.addTaskIcon} />
-            <Modal
-              handleClose={handleClose}
-              isOpen={isOpen}
-              title="Новая задача"
-            >
+            <button type="button" onClick={onNewTask} className={styles.addTaskIcon}>
+              <AddIcon />
+            </button>
+            <Modal handleClose={handleClose} isOpen={isOpen} title="Новая задача">
               <NewTask handleClose={handleClose} />
             </Modal>
           </>
         )}
-        <div
-          className={styles.delimiter}
-          style={{ borderBottom: `3px solid ${indicatorColor}` }}
-        />
+        <div className={styles.delimiter} style={{ borderBottom: `3px solid ${indicatorColor}` }} />
       </div>
       <div className={styles.todoMain}>
-        {loading ? (
-          <TodoLoader />
-        ) : (
-          stageTasks.map((task) => (
-            <Task key={task.id} id={task.id} task={task} />
-          ))
-        )}
+        {loading ? <TodoLoader /> : stageTasks.map((task) => <Task key={task.id} id={task.id} task={task} />)}
       </div>
       {!isOver && canDrop && <Overlay />}
       {isOver && canDrop && <Overlay color="#61D7A4" />}

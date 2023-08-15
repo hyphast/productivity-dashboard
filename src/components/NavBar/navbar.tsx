@@ -1,9 +1,9 @@
 import { FC, MouseEvent } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import PlusIcon from '@/assets/images/icons/plus.svg'
+import { useUserStore } from '@/store/use-user-store'
 import { ProjectItem } from './project-item'
 import { useProjectDatabase } from './use-project-database'
-import { ReactComponent as PlusIcon } from '../../assets/images/icons/plus.svg'
-import { useUserStore } from '../../store/use-user-store'
 import { Loader } from '../loaders/loader/loader'
 import styles from './navbar.module.scss'
 
@@ -18,11 +18,7 @@ export const NavBar: FC = () => {
     createProject()
   }
 
-  const onProjectClick = (
-    event: MouseEvent<HTMLDivElement>,
-    index: number,
-    key: string | null
-  ) => {
+  const onProjectClick = (event: MouseEvent<HTMLButtonElement>, index: number, key: string | null) => {
     event.stopPropagation()
     if (!key) return
     navigate(`/${key}`)
@@ -37,18 +33,19 @@ export const NavBar: FC = () => {
             <Loader />
           </div>
         ) : (
-          <PlusIcon onClick={onNewProject} />
+          <button type="button" onClick={onNewProject}>
+            <PlusIcon />
+          </button>
         )}
       </div>
       <div className={styles.projectsContainer}>
         <ul>
           {projects.map((project, index) => (
             <li key={project.id}>
-              <div
+              <button
                 className={styles.projectBtn}
-                onClick={(event: MouseEvent<HTMLDivElement>) =>
-                  onProjectClick(event, index, project.id)
-                }
+                type="button"
+                onClick={(event: MouseEvent<HTMLButtonElement>) => onProjectClick(event, index, project.id)}
               >
                 <ProjectItem
                   id={project.id}
@@ -56,7 +53,7 @@ export const NavBar: FC = () => {
                   indicatorColor={project.indicator}
                   active={id === project.id}
                 />
-              </div>
+              </button>
             </li>
           ))}
         </ul>
