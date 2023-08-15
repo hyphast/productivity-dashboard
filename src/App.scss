@@ -1,5 +1,5 @@
-@use 'commonStyles/colors' as v;
-@use 'commonStyles/libs/_normalize.scss';
+@use 'common-styles/_colors.scss' as v;
+@use 'common-styles/libs/_normalize.scss';
 
 html {
   height: 100vh;
@@ -28,5 +28,6 @@ body {
 .notSupported {
   text-align: center;
   padding: 150px 20px;
-  font-size: clamp(18px, 4vw, 32px);
+  // font-size: clamp(18px, 4vw, 32px);
+  font-size: responsive 18px 32px;
 }

@@ -1,0 +1,56 @@
+@use '@/common-styles/_colors.scss' as *;
+
+.projectItem {
+  position: relative;
+  left: -13px;
+  display: flex;
+  padding: 13px 15px 13px 37px;
+  border-radius: 6px;
+  font-size: 16px;
+  line-height: 19px;
+  cursor: pointer;
+
+  .indicator {
+    position: relative;
+    top: 5px;
+    left: -23px;
+  }
+
+  .name {
+    width: 135px;
+    color: $secondary;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .deleteIcon {
+    width: 20px;
+    height: 20px;
+    opacity: 50%;
+    position: absolute;
+    top: 12px;
+    right: 15px;
+
+    svg {
+      &:hover {
+        path {
+          stroke: red;
+        }
+        line {
+          stroke: red;
+        }
+      }
+    }
+  }
+}
+
+.activeProject {
+  background: rgba(80, 48, 229, 8%);
+
+  .name {
+    color: $primary;
+    font-weight: 600;
+  }
+}

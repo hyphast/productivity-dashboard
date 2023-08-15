@@ -3,22 +3,26 @@
   width: fit-content;
 
   .findIcon {
-    position: absolute;
-    top: 10px;
-    left: 10px;
+    svg {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
   }
 
   .clearIcon {
-    cursor: pointer;
-    position: absolute;
-    width: 20px;
-    top: 10px;
-    height: 20px;
-    right: 10px;
-    opacity: 50%;
+    svg {
+      cursor: pointer;
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: 11px;
+      right: 10px;
+      opacity: 50%;
 
-    &:hover {
-      fill: red;
+      &:hover {
+        fill: red;
+      }
     }
   }
 

@@ -1,0 +1,6 @@
+node_modules
+dist
+coverage
+config
+postcss.config.js
+babel.config.js

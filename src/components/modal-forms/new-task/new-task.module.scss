@@ -1,0 +1,55 @@
+.priority {
+  display: flex;
+  font-size: 14px;
+  margin-bottom: 15px;
+
+  label {
+    margin-left: 10px;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 15px;
+    line-height: 34px;
+    border-radius: 6px;
+    user-select: none;
+  }
+
+  .low {
+    label {
+      background: rgb(223 168 116 / 20%);
+      color: #d58d49;
+    }
+  }
+
+  .high {
+    label {
+      background: rgb(216 114 125 / 10%);
+      color: #d8727d;
+    }
+  }
+
+  .completed {
+    label {
+      background: rgb(131 194 157 / 20%);
+      color: #68b266;
+    }
+  }
+
+  input[type='radio'] {
+    display: none;
+
+    &:checked + label {
+      border: 2px dashed grey;
+    }
+  }
+}
+
+.error-msg {
+  position: relative;
+  top: -6px;
+  color: red;
+  font-size: 12px;
+}
+
+.desc-input-error {
+  top: 4px !important;
+}

@@ -1,17 +1,15 @@
 import React, { FC, useEffect } from 'react'
 import cn from 'classnames'
 import { useForm } from 'react-hook-form'
-import { Input } from '../common/Input/Input'
-import { useDebounce } from '../../hooks/useDebounce'
-import { ReactComponent as SearchIcon } from '../../assets/img/icons/search.svg'
-import { ReactComponent as ClearIcon } from '../../assets/img/icons/clear.svg'
-import { useUserStore } from '../../store/useUserStore'
-import styles from './Search.module.scss'
+import { Input } from '@/shared/input/input'
+import { useDebounce } from '@/hooks/use-debounce'
+import SearchIcon from '@/assets/images/icons/search.svg'
+import ClearIcon from '@/assets/images/icons/clear.svg'
+import { useUserStore } from '@/store/use-user-store'
 
-export const Search: FC<React.InputHTMLAttributes<HTMLInputElement>> = ({
-  className,
-  placeholder,
-}) => {
+import styles from './search.module.scss'
+
+export const Search: FC<React.InputHTMLAttributes<HTMLInputElement>> = ({ className, placeholder }) => {
   const setSearch = useUserStore((state) => state.setSearch)
   const search = useUserStore((state) => state.search)
   const { register, watch, reset } = useForm({
@@ -33,10 +31,14 @@ export const Search: FC<React.InputHTMLAttributes<HTMLInputElement>> = ({
 
   return (
     <div className={cn(styles.root, className)}>
-      <SearchIcon className={styles.findIcon} />
+      <button type="button" className={styles.findIcon}>
+        <SearchIcon />
+      </button>
       <Input placeholder={placeholder} {...register('search')} />
       {!!watchSearch.length && (
-        <ClearIcon onClick={onClearClick} className={styles.clearIcon} />
+        <button type="button" onClick={onClearClick} className={styles.clearIcon}>
+          <ClearIcon />
+        </button>
       )}
     </div>
   )

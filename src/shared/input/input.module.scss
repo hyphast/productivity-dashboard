@@ -1,0 +1,23 @@
+.input {
+  width: 400px;
+  max-width: 417px;
+  height: 44px;
+  border: 0;
+  padding: 11px 26px;
+  border-radius: 5px;
+  background: #f5f5f5;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.94px;
+  caret-color: #5030e5;
+
+  &:focus {
+    border: 1px solid rgb(0 0 0 / 10%);
+  }
+}
+
+.area {
+  width: 400px !important;
+  height: 100px !important;
+  resize: none;
+}

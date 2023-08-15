@@ -1,16 +1,10 @@
-import React, { FC, useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { useMediaQuery } from 'react-responsive'
-import { Main } from './layout/Main'
-import { useModal } from './hooks/useModal'
-import {
-  Content,
-  Modal,
-  NewUser,
-  ProjectNotChosen,
-  ProjectNotFound,
-} from './components'
-import './App.scss'
+import { Main } from './layout/main'
+import { useModal } from './hooks/use-modal'
+import { Content, Modal, NewUser, ProjectNotChosen, ProjectNotFound } from './components'
+import './app.scss'
 
 const App: FC = () => {
   const { isOpen, handleClose } = useModal(true)
@@ -27,11 +21,7 @@ const App: FC = () => {
   }, [])
 
   if (isTabletOrMobile) {
-    return (
-      <h2 className="notSupported">
-        Не поддерживается на мобильных устройствах
-      </h2>
-    )
+    return <h2 className="notSupported">Не поддерживается на мобильных устройствах</h2>
   }
 
   return (
