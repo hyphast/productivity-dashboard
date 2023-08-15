@@ -16,10 +16,7 @@ export const Main: FC = () => {
           [styles.navbarNotVisible]: !navbarVisible,
         })}
       >
-        <TopInfo
-          setNavbarVisible={setNavbarVisible}
-          navbarVisible={navbarVisible}
-        />
+        <TopInfo setNavbarVisible={setNavbarVisible} navbarVisible={navbarVisible} />
         <NavBar />
       </div>
       <div className={styles.content}>

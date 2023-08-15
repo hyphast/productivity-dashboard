@@ -15,11 +15,7 @@ export const Avatar: FC<AvatarProps> = ({ userId, className }) => {
 
   return (
     <div className={cn('avatar', className)}>
-      {loading ? (
-        <AvatarLoader />
-      ) : (
-        <img src={avatar} alt="avatar" className="avatar__image" />
-      )}
+      {loading ? <AvatarLoader /> : <img src={avatar} alt="avatar" className="avatar__image" />}
       <div className="avatar__name">{name}</div>
     </div>
   )

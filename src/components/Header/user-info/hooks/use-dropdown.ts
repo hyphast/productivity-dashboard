@@ -8,9 +8,7 @@ type UseDropdownReturn = [
     toggleDropdown: (event: MouseEvent) => void
   },
 ]
-export const useDropdown = (
-  dropdownRef: RefObject<HTMLElement>,
-): UseDropdownReturn => {
+export const useDropdown = (dropdownRef: RefObject<HTMLElement>): UseDropdownReturn => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false)
 
   const handlers = useMemo(

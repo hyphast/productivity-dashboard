@@ -1,11 +1,4 @@
-import React, {
-  ChangeEvent,
-  FC,
-  KeyboardEvent,
-  useCallback,
-  useEffect,
-  useRef,
-} from 'react'
+import React, { ChangeEvent, FC, KeyboardEvent, useCallback, useEffect, useRef } from 'react'
 import { useClickOutside } from '@/hooks/use-click-outside'
 import styles from '../project-title.module.scss'
 
@@ -15,12 +8,7 @@ type TitleInputProps = {
   setIsEditable: React.Dispatch<React.SetStateAction<boolean>>
   setNewProjectName: () => void
 }
-export const TitleInput: FC<TitleInputProps> = ({
-  onChange,
-  value,
-  setIsEditable,
-  setNewProjectName,
-}) => {
+export const TitleInput: FC<TitleInputProps> = ({ onChange, value, setIsEditable, setNewProjectName }) => {
   const inputRef = useRef<HTMLInputElement>(null)
 
   const closeTitleInput = useCallback(() => {

@@ -8,19 +8,13 @@ type TopInfoProps = {
   setNavbarVisible: Dispatch<SetStateAction<boolean>>
   navbarVisible: boolean
 }
-export const TopInfo: FC<TopInfoProps> = ({
-  setNavbarVisible,
-  navbarVisible,
-}) => {
+export const TopInfo: FC<TopInfoProps> = ({ setNavbarVisible, navbarVisible }) => {
   return (
     <div className={styles.root}>
       <Link to="/">
         <Logo />
       </Link>
-      <Collapse
-        setNavbarVisible={setNavbarVisible}
-        navbarVisible={navbarVisible}
-      />
+      <Collapse setNavbarVisible={setNavbarVisible} navbarVisible={navbarVisible} />
     </div>
   )
 }

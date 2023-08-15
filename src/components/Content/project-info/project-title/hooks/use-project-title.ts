@@ -5,11 +5,7 @@ import { ref } from 'firebase/database'
 import { useUserStore } from '@/store/use-user-store'
 import { db } from '@/firebase'
 
-type UseProjectTitleReturn = [
-  string,
-  boolean,
-  (event: ChangeEvent<HTMLInputElement>) => void,
-]
+type UseProjectTitleReturn = [string, boolean, (event: ChangeEvent<HTMLInputElement>) => void]
 export const useProjectTitle = (projectId: string): UseProjectTitleReturn => {
   const [snapshot, loading, error] = useObject(ref(db, `projects/${projectId}`))
   const renameProject = useUserStore((state) => state.renameProject)

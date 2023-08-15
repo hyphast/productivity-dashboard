@@ -51,11 +51,7 @@ const setValue = (snapshots: DataSnapshot[]): Value => {
   }
 }
 
-const addChild = (
-  currentState: Value,
-  snapshot: DataSnapshot,
-  previousKey?: string | null,
-): Value => {
+const addChild = (currentState: Value, snapshot: DataSnapshot, previousKey?: string | null): Value => {
   if (!snapshot.key) {
     return currentState
   }
@@ -72,11 +68,7 @@ const addChild = (
 
   return {
     keys: [...keys.slice(0, index + 1), snapshot.key, ...keys.slice(index + 1)],
-    values: [
-      ...values.slice(0, index + 1),
-      snapshot,
-      ...values.slice(index + 1),
-    ],
+    values: [...values.slice(0, index + 1), snapshot, ...values.slice(index + 1)],
   }
 }
 
@@ -108,11 +100,7 @@ const removeChild = (currentState: Value, snapshot: DataSnapshot): Value => {
   }
 }
 
-const moveChild = (
-  currentState: Value,
-  snapshot: DataSnapshot,
-  previousKey?: string | null,
-): Value => {
+const moveChild = (currentState: Value, snapshot: DataSnapshot, previousKey?: string | null): Value => {
   const tempValue = removeChild(currentState, snapshot)
   return addChild(tempValue, snapshot, previousKey)
 }

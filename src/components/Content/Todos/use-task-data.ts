@@ -3,9 +3,9 @@ import { useList } from 'react-firebase-hooks/database'
 import { useParams } from 'react-router-dom'
 import { ref } from 'firebase/database'
 
-import { TTaskData } from './todos.types'
 import { useUserStore } from '@/store/use-user-store'
 import { db } from '@/firebase'
+import { TTaskData } from './todos.types'
 
 const quote = (str: string) => {
   return str.replace(/([.?*+^$[\]\\(){}|-])/g, '\\$1')

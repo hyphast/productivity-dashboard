@@ -1,14 +1,6 @@
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import {
-  off,
-  onDisconnect,
-  onValue,
-  push,
-  ref,
-  set,
-  ThenableReference,
-} from 'firebase/database'
+import { off, onDisconnect, onValue, push, ref, set, ThenableReference } from 'firebase/database'
 import { useUserStore } from '@/store/use-user-store'
 import { db } from '@/firebase'
 

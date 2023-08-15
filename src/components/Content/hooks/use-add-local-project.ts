@@ -20,7 +20,7 @@ export const useAddLocalProject = (): UseLocalProjectReturn => {
           setError(true)
         }
       })
-      .catch((e) => {
+      .catch(() => {
         setError(true)
       })
 

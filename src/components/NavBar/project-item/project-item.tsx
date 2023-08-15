@@ -12,16 +12,11 @@ export type TProjectItem = {
   active?: boolean
   indicatorColor?: IndicatorColorEnum
 }
-export const ProjectItem: FC<TProjectItem> = ({
-  id,
-  name,
-  active,
-  indicatorColor,
-}) => {
+export const ProjectItem: FC<TProjectItem> = ({ id, name, active, indicatorColor }) => {
   const deleteProject = useUserStore((state) => state.deleteProject)
   const navigate = useNavigate()
 
-  const onDeleteClick = (event: MouseEvent<HTMLDivElement>) => {
+  const onDeleteClick = (event: MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation()
     deleteProject(id)
     navigate('/')
@@ -33,9 +28,9 @@ export const ProjectItem: FC<TProjectItem> = ({
         <ColoredCircle indicatorColor={indicatorColor} />
       </div>
       <div className={styles.name}>{name}</div>
-      <div onClick={onDeleteClick} className={styles.deleteIcon}>
+      <button className={styles.deleteIcon} type="button" onClick={onDeleteClick}>
         <DeleteButton />
-      </div>
+      </button>
     </div>
   )
 }

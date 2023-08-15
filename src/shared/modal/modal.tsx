@@ -1,9 +1,9 @@
 import { FC, PropsWithChildren, useRef } from 'react'
 import cn from 'classnames'
 import { CSSTransition } from 'react-transition-group'
-import { ReactPortal } from './react-portal'
 import CloseIcon from '@/assets/images/icons/close.svg'
 import { useClickOutside } from '@/hooks/use-click-outside'
+import { ReactPortal } from './react-portal'
 import styles from './modal.module.scss'
 
 interface IModalProps extends PropsWithChildren {
@@ -12,13 +12,7 @@ interface IModalProps extends PropsWithChildren {
   className?: string
   title?: string
 }
-export const Modal: FC<IModalProps> = ({
-  children,
-  isOpen,
-  className,
-  handleClose,
-  title,
-}) => {
+export const Modal: FC<IModalProps> = ({ children, isOpen, className, handleClose, title }) => {
   const nodeRef = useRef<HTMLDivElement>(null)
   const modalRef = useRef<HTMLDivElement>(null)
 
@@ -30,22 +24,11 @@ export const Modal: FC<IModalProps> = ({
 
   return (
     <ReactPortal id="modal-root">
-      <CSSTransition
-        in={isOpen}
-        appear
-        timeout={300}
-        unmountOnExit
-        classNames="modal"
-        nodeRef={nodeRef}
-      >
+      <CSSTransition in={isOpen} appear timeout={300} unmountOnExit classNames="modal" nodeRef={nodeRef}>
         <div className={styles.modal} ref={nodeRef}>
           <div className={cn(styles.modalContent, className)} ref={modalRef}>
             {isClosable && (
-              <button
-                type="button"
-                onClick={handleClose}
-                className={styles.closeBtn}
-              >
+              <button type="button" onClick={handleClose} className={styles.closeBtn}>
                 <CloseIcon />
               </button>
             )}

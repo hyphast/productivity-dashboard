@@ -6,10 +6,7 @@ type CollapseProps = {
   setNavbarVisible: Dispatch<SetStateAction<boolean>>
   navbarVisible: boolean
 }
-export const Collapse: FC<CollapseProps> = ({
-  setNavbarVisible,
-  navbarVisible,
-}) => {
+export const Collapse: FC<CollapseProps> = ({ setNavbarVisible, navbarVisible }) => {
   return (
     <button
       type="button"

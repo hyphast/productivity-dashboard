@@ -9,10 +9,7 @@ import { useUserStore } from '@/store/use-user-store'
 
 import styles from './search.module.scss'
 
-export const Search: FC<React.InputHTMLAttributes<HTMLInputElement>> = ({
-  className,
-  placeholder,
-}) => {
+export const Search: FC<React.InputHTMLAttributes<HTMLInputElement>> = ({ className, placeholder }) => {
   const setSearch = useUserStore((state) => state.setSearch)
   const search = useUserStore((state) => state.search)
   const { register, watch, reset } = useForm({
@@ -39,11 +36,7 @@ export const Search: FC<React.InputHTMLAttributes<HTMLInputElement>> = ({
       </button>
       <Input placeholder={placeholder} {...register('search')} />
       {!!watchSearch.length && (
-        <button
-          type="button"
-          onClick={onClearClick}
-          className={styles.clearIcon}
-        >
+        <button type="button" onClick={onClearClick} className={styles.clearIcon}>
           <ClearIcon />
         </button>
       )}

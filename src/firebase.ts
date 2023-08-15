@@ -11,7 +11,8 @@ const firebaseConfig = {
   databaseURL: process.env.REACT_APP_DATABASE_URL,
 }
 
-const app = initializeApp(firebaseConfig)
+initializeApp(firebaseConfig)
+
 export const db = getDatabase()
 export const projectsRef = ref(db, 'projects')
 export const usersRef = ref(db, 'users')

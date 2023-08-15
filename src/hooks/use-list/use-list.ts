@@ -31,10 +31,7 @@ export const useList = (query: Query): UseListReturn => {
       return
     }
 
-    const onChildAdded = (
-      snapshot: DataSnapshot,
-      previousKey?: string | null,
-    ) => {
+    const onChildAdded = (snapshot: DataSnapshot, previousKey?: string | null) => {
       dispatch({ type: 'add', previousKey, snapshot })
     }
 
@@ -42,10 +39,7 @@ export const useList = (query: Query): UseListReturn => {
       dispatch({ type: 'change', snapshot })
     }
 
-    const onChildMoved = (
-      snapshot: DataSnapshot,
-      previousKey?: string | null,
-    ) => {
+    const onChildMoved = (snapshot: DataSnapshot, previousKey?: string | null) => {
       dispatch({ type: 'move', previousKey, snapshot })
     }
 
@@ -63,9 +57,7 @@ export const useList = (query: Query): UseListReturn => {
 
     const onInitialLoad = (snapshot: DataSnapshot) => {
       const snapshotVal = snapshot.val()
-      let childrenToProcess = snapshotVal
-        ? Object.keys(snapshot.val()).length
-        : 0
+      let childrenToProcess = snapshotVal ? Object.keys(snapshot.val()).length : 0
 
       if (childrenToProcess === 0) {
         firebaseOnChildAdded(qRef, onChildAdded, onError)
@@ -73,10 +65,7 @@ export const useList = (query: Query): UseListReturn => {
       } else {
         const children: DataSnapshot[] = []
 
-        const onChildAddedWithoutInitialLoad = (
-          addedChild: DataSnapshot,
-          previousKey?: string | null,
-        ) => {
+        const onChildAddedWithoutInitialLoad = (addedChild: DataSnapshot, previousKey?: string | null) => {
           if (childrenToProcess > 0) {
             childrenToProcess -= 1
             children.push(addedChild)

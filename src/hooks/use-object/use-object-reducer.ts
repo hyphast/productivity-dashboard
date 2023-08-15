@@ -53,9 +53,7 @@ const reducer =
     }
   }
 
-export const useObjectReducer = (
-  getDefaultValue?: () => DataSnapshot,
-): LoadingValue => {
+export const useObjectReducer = (getDefaultValue?: () => DataSnapshot): LoadingValue => {
   const defaultVal = getDefaultValue ? getDefaultValue() : undefined
   const [state, dispatch] = useReducer(reducer(), defaultState(defaultVal))
 

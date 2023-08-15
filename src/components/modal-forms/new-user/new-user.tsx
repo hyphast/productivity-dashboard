@@ -1,7 +1,6 @@
-import React, { FC } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { INewUserValues } from './new-user.types'
 import { Input } from '@/shared/input/input'
+import { INewUserValues } from './new-user.types'
 import { useUserDatabase } from './use-user-database'
 import newUserStyles from './new-user.module.scss'
 import styles from '../modal-forms.module.scss'
@@ -20,7 +19,8 @@ const nameConstraints = {
 type NewUserFormProps = {
   handleClose: () => void
 }
-export const NewUser: FC<NewUserFormProps> = ({ handleClose }) => {
+
+export const NewUser = ({ handleClose }: NewUserFormProps) => {
   const {
     register,
     handleSubmit,
@@ -35,11 +35,7 @@ export const NewUser: FC<NewUserFormProps> = ({ handleClose }) => {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-      <Input
-        className={newUserStyles.root}
-        placeholder="Введите ваше имя"
-        {...register('name', nameConstraints)}
-      />
+      <Input className={newUserStyles.root} placeholder="Введите ваше имя" {...register('name', nameConstraints)} />
       {errors.name && <p className={styles.errorMsg}>{errors.name.message}</p>}
       <button className={styles.submit} type="submit">
         Принять

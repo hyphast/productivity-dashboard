@@ -16,7 +16,7 @@ export const useUserDatabase = (): UseUserDBReturn => {
         if (!pRef.key) return
         setUser(pRef.key, name, avatarIdx)
       })
-      .catch((e) => {
+      .catch(() => {
         setError('Create user error')
       })
   }, [])

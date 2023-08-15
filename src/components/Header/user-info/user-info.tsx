@@ -1,6 +1,5 @@
 import { useCallback, useRef } from 'react'
 import cn from 'classnames'
-import { CSSTransition } from 'react-transition-group'
 import { useNavigate } from 'react-router-dom'
 import { useUserStore } from '@/store/use-user-store'
 import ArrowIcon from '@/assets/images/icons/arrow.svg'
@@ -13,8 +12,7 @@ export const UserInfo = () => {
   const name = useUserStore((state) => state.user.name)
   const [avatar] = useAvatar()
   const dropdownRef = useRef<HTMLDivElement>(null)
-  const [isDropdownVisible, { toggleDropdown: onArrowClick }] =
-    useDropdown(dropdownRef)
+  const [isDropdownVisible, { toggleDropdown: onArrowClick }] = useDropdown(dropdownRef)
   const navigate = useNavigate()
 
   const onLogoutClick = useCallback(() => {
@@ -31,27 +29,21 @@ export const UserInfo = () => {
       <button type="button" onClick={onArrowClick} className={styles.arrow}>
         <ArrowIcon />
       </button>
-      {/*<CSSTransition*/}
-      {/*  in={isDropdownVisible}*/}
-      {/*  appear*/}
-      {/*  timeout={300}*/}
-      {/*  unmountOnExit*/}
-      {/*  classNames="dropdown"*/}
-      {/*  nodeRef={dropdownRef}*/}
-      {/*>*/}
-      <div
-        ref={dropdownRef}
-        className={cn(
-          { [styles.dropdownHidden]: !isDropdownVisible },
-          styles.dropdown,
-        )}
-      >
+      {/* <CSSTransition */}
+      {/*  in={isDropdownVisible} */}
+      {/*  appear */}
+      {/*  timeout={300} */}
+      {/*  unmountOnExit */}
+      {/*  classNames="dropdown" */}
+      {/*  nodeRef={dropdownRef} */}
+      {/* > */}
+      <div ref={dropdownRef} className={cn({ [styles.dropdownHidden]: !isDropdownVisible }, styles.dropdown)}>
         <button type="button" onClick={onLogoutClick}>
           Logout
           <LogoutIcon />
         </button>
       </div>
-      {/*</CSSTransition>*/}
+      {/* </CSSTransition> */}
     </div>
   )
 }

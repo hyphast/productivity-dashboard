@@ -10,9 +10,7 @@ export const useProjectDatabase = (): UseProjectReturn => {
   const [error, setError] = useState<string | undefined>(undefined)
   const navigate = useNavigate()
   const sameName = useUserStore((state) =>
-    state.projects.filter(
-      (item) => item.name.replace(/\s\(\d+\)/, '') === 'New Project',
-    ),
+    state.projects.filter((item) => item.name.replace(/\s\(\d+\)/, '') === 'New Project'),
   )
 
   const createProject = useCallback(() => {
@@ -22,12 +20,11 @@ export const useProjectDatabase = (): UseProjectReturn => {
     const id = pRef.key
     if (!id) return
 
-    const newProjectName =
-      sameName.length > 0 ? `New Project (${sameName.length})` : 'New Project'
+    const newProjectName = sameName.length > 0 ? `New Project (${sameName.length})` : 'New Project'
 
     set(pRef, { name: newProjectName })
       .then(() => navigate(`/${id}`, { state: { isNewProject: true } }))
-      .catch((e) => setError('Some error'))
+      .catch(() => setError('Some error'))
       .finally(() => setLoading(false))
   }, [sameName])
 

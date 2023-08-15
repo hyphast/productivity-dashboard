@@ -4,8 +4,7 @@ import { useObjectReducer } from './use-object-reducer'
 
 type UseObjectReturn = [DataSnapshot | undefined, boolean, Error | undefined]
 export const useObject = (query: Query): UseObjectReturn => {
-  const { error, loading, reset, setError, setValue, value } =
-    useObjectReducer()
+  const { error, loading, reset, setError, setValue, value } = useObjectReducer()
 
   const queryRef = useRef(query)
   const qRef = queryRef.current

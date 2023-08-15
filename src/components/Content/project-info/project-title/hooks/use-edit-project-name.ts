@@ -1,10 +1,4 @@
-import React, {
-  MouseEvent,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react'
+import React, { MouseEvent, useCallback, useEffect, useMemo, useState } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 import { ref, update } from 'firebase/database'
 import { db } from '@/firebase'
@@ -19,10 +13,7 @@ type UseEditProjectNameReturn = [
   () => void,
   string | undefined,
 ]
-export const useEditProjectName = (
-  projectId: string,
-  title: string,
-): UseEditProjectNameReturn => {
+export const useEditProjectName = (projectId: string, title: string): UseEditProjectNameReturn => {
   const { id } = useParams()
   const location = useLocation()
   const renameProject = useUserStore((state) => state.renameProject)
@@ -50,7 +41,7 @@ export const useEditProjectName = (
       .then(() => {
         renameProject(projectId, title)
       })
-      .catch((e) => {
+      .catch(() => {
         setError('Rename project error')
       })
   }, [title, projectId])

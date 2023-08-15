@@ -1,8 +1,8 @@
 import { ref, update } from 'firebase/database'
 import { useMemo } from 'react'
 import { useParams } from 'react-router-dom'
-import { ItemTypes, StageEnum, TTaskData } from '../todos.types'
 import { db } from '@/firebase'
+import { ItemTypes, StageEnum, TTaskData } from '../todos.types'
 
 type UseDropArgsReturn = {
   accept: string
@@ -10,10 +10,7 @@ type UseDropArgsReturn = {
   drop: (item: { id: number; stage: StageEnum }) => void
   collect: (monitor: any) => { isOver: boolean; canDrop: boolean }
 }
-export const useDropArgs = (
-  stage: StageEnum,
-  taskData: TTaskData[],
-): UseDropArgsReturn => {
+export const useDropArgs = (stage: StageEnum, taskData: TTaskData[]): UseDropArgsReturn => {
   const { id } = useParams()
 
   const dropArgs = useMemo(

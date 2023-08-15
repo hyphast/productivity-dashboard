@@ -66,8 +66,7 @@ export const useUserStore = create<IUserState>()(
         },
         projects: [],
         search: '',
-        setUser: (id: string, name: string, idx: number) =>
-          set({ user: { id, name, avatar: idx } }),
+        setUser: (id: string, name: string, idx: number) => set({ user: { id, name, avatar: idx } }),
         setSearch: (search: string) => set({ search }),
         renameProject: (id: string, name: string) => {
           const projectExistId = findProjectId(get().projects, id)
@@ -75,6 +74,7 @@ export const useUserStore = create<IUserState>()(
           if (projectExistId > -1) {
             set(
               produce<IUserState>((state) => {
+                // eslint-disable-next-line no-param-reassign
                 state.projects[projectExistId].name = name
               }),
             )
@@ -85,6 +85,7 @@ export const useUserStore = create<IUserState>()(
           if (projectExistId > -1) {
             set(
               produce<IUserState>((state) => {
+                // eslint-disable-next-line no-param-reassign
                 state.projects[projectExistId].name = name
               }),
             )

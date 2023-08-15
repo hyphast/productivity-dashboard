@@ -20,6 +20,7 @@
   pointer-events: auto;
   transform: scale(1);
 }
+
 .modal-exit {
   opacity: 0;
   transform: scale(0.4);
