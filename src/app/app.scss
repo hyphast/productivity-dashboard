@@ -1,12 +1,12 @@
-@use 'common-styles/_colors.scss' as v;
-@use 'common-styles/libs/_normalize.scss';
+@use './styles/_normalize.scss';
+@use './styles/_variables.scss' as *;
 
 html {
   height: 100vh;
 }
 
 body {
-  background-color: v.$background;
+  background-color: $background;
   height: 100vh;
   overflow-y: scroll;
 }
@@ -25,9 +25,8 @@ body {
   height: 88px;
 }
 
-.notSupported {
+.not-supported {
   text-align: center;
   padding: 150px 20px;
-  // font-size: clamp(18px, 4vw, 32px);
   font-size: responsive 18px 32px;
 }

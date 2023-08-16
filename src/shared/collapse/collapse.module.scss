@@ -1,4 +1,4 @@
-@use '@/common-styles/_colors.scss' as *;
+@use '@/app/styles/_variables.scss' as *;
 
 .root {
   display: flex;
@@ -16,7 +16,7 @@
     transform: rotate(45deg);
   }
 
-  .secondArrow {
+  .second-arrow {
     position: absolute;
     left: 6px;
   }

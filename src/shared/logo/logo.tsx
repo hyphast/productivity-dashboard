@@ -1,8 +1,8 @@
-import { FC } from 'react'
 import cn from 'classnames'
+
 import styles from './logo.module.scss'
 
-export const Logo: FC = () => {
+export const Logo = () => {
   return (
     <div className={styles.root}>
       <div className={styles.logo}>

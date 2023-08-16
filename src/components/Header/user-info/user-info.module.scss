@@ -1,4 +1,4 @@
-@use '@/common-styles/_colors.scss' as *;
+@use '@/app/styles/_variables.scss' as *;
 
 .root {
   display: grid;
@@ -59,18 +59,6 @@
     right: 50px;
     top: 50px;
 
-    //transition: all 0.1s ease-in-out;
-    //z-index: 999;
-    //opacity: 0;
-    //
-    //&:global(.dropdown-enter-done) {
-    //  opacity: 1;
-    //  pointer-events: auto;
-    //}
-    //&:global(.dropdown-exit) {
-    //  opacity: 0;
-    //}
-
     button {
       text-align: center;
       width: 100%;
@@ -78,10 +66,10 @@
       font-size: 16px;
       line-height: 19.36px;
       cursor: pointer;
-      opacity: 90%;
+      opacity: 0.9;
 
       svg {
-        opacity: 90%;
+        opacity: 0.9;
         position: relative;
         right: -10px;
         top: 4px;
@@ -91,7 +79,7 @@
     }
   }
 
-  .dropdownHidden {
+  .dropdown-hidden {
     display: none;
   }
 }

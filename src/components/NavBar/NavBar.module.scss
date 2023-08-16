@@ -1,9 +1,9 @@
-@use '@/common-styles/_colors.scss' as *;
+@use '@/app/styles/_variables.scss' as *;
 
 .root {
   margin-top: 35px;
 
-  .myProjectsHeader {
+  .my-projects-header {
     display: flex;
     justify-content: space-between;
 
@@ -35,17 +35,17 @@
     }
   }
 
-  .projectsContainer {
+  .projects-container {
     margin-top: 24px;
     display: flex;
     flex-direction: column;
 
-    .projectBtn {
+    .project-btn {
       width: 225px;
       height: 45px;
     }
 
-    .projectBtn + .projectBtn {
+    .project-btn + .project-btn {
       margin-top: 10px;
     }
   }

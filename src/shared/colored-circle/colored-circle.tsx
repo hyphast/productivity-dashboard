@@ -1,4 +1,3 @@
-import { FC } from 'react'
 import styles from './colored-circle.module.scss'
 
 export enum IndicatorColorEnum {
@@ -11,7 +10,8 @@ export enum IndicatorColorEnum {
 type ColoredCircleProps = {
   indicatorColor?: IndicatorColorEnum
 }
-export const ColoredCircle: FC<ColoredCircleProps> = ({ indicatorColor }) => {
+
+export const ColoredCircle = ({ indicatorColor }: ColoredCircleProps) => {
   return <span style={{ background: indicatorColor }} className={styles.root} />
 }
 

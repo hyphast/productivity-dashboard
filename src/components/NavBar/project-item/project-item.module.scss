@@ -1,6 +1,6 @@
-@use '@/common-styles/_colors.scss' as *;
+@use '@/app/styles/_variables.scss' as *;
 
-.projectItem {
+.project-item {
   position: relative;
   left: -13px;
   display: flex;
@@ -25,10 +25,10 @@
     white-space: nowrap;
   }
 
-  .deleteIcon {
+  .delete-icon {
     width: 20px;
     height: 20px;
-    opacity: 50%;
+    opacity: 0.5;
     position: absolute;
     top: 12px;
     right: 15px;
@@ -38,6 +38,7 @@
         path {
           stroke: red;
         }
+
         line {
           stroke: red;
         }
@@ -46,8 +47,8 @@
   }
 }
 
-.activeProject {
-  background: rgba(80, 48, 229, 8%);
+.active-project {
+  background: rgb(80 48 229 / 8%);
 
   .name {
     color: $primary;

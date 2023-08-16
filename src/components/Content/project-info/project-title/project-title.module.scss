@@ -1,23 +1,25 @@
 .root {
   display: flex;
 
-  @mixin titleStyles() {
+  @mixin title-styles() {
     font-weight: 600;
     font-size: 46px;
     line-height: 56px;
     max-width: 550px;
   }
 
-  .titleInput {
+  .title-input {
     border: none;
-    @include titleStyles();
+
+    @include title-styles;
   }
 
   .title {
     display: flex;
 
     h1 {
-      @include titleStyles();
+      @include title-styles;
+
       width: fit-content;
       text-overflow: ellipsis;
       overflow: hidden;
@@ -25,7 +27,7 @@
     }
   }
 
-  .iconsContainer {
+  .icons-container {
     cursor: pointer;
     margin: 15px 0 0 22px;
     transition: all 0.1s ease-in-out;

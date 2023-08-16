@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
 import { produce } from 'immer'
-import { IndicatorColorEnum } from '@/components/colored-circle'
+import { IndicatorColorEnum } from '@/shared/colored-circle'
 import avatar0 from '@/assets/images/avatars/ava0.png'
 import avatar2 from '@/assets/images/avatars/ava2.jpg'
 import avatar1 from '@/assets/images/avatars/ava1.jpg'

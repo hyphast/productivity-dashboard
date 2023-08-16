@@ -11,6 +11,7 @@
     "test": "jest",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
+    "stylelint:check": "stylelint \"**/*.scss\"",
     "code:check": "prettier --check \"src/**/*.{ts,tsx,js,css,scss,html}\"",
     "code:format": "prettier --write \"src/**/*.{ts,tsx,js,css,scss,html}\"",
     "code:format:specific-file": "prettier --write",

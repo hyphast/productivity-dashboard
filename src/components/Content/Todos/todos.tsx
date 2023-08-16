@@ -1,6 +1,6 @@
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
-import { IndicatorColorEnum } from '@/components/colored-circle'
+import { IndicatorColorEnum } from '@/shared/colored-circle'
 import { TodoItem } from './todo-item'
 import { StageEnum, TTodo } from './todos.types'
 import { useTaskData } from './use-task-data'

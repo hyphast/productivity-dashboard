@@ -1,20 +1,21 @@
-import { Dispatch, FC, SetStateAction } from 'react'
 import { Link } from 'react-router-dom'
-import { Collapse } from './collapse'
-import { Logo } from './logo'
+import { Collapse } from '@/shared/collapse'
+import { Logo } from '@/shared/logo'
+
 import styles from './top-info.module.scss'
 
 type TopInfoProps = {
-  setNavbarVisible: Dispatch<SetStateAction<boolean>>
-  navbarVisible: boolean
+  onToggleNavbar: () => void
+  isNavbarVisible: boolean
 }
-export const TopInfo: FC<TopInfoProps> = ({ setNavbarVisible, navbarVisible }) => {
+
+export const TopInfo = ({ onToggleNavbar, isNavbarVisible }: TopInfoProps) => {
   return (
     <div className={styles.root}>
       <Link to="/">
         <Logo />
       </Link>
-      <Collapse setNavbarVisible={setNavbarVisible} navbarVisible={navbarVisible} />
+      <Collapse onToggleNavbar={onToggleNavbar} isCollapsed={isNavbarVisible} />
     </div>
   )
 }

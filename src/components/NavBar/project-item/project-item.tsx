@@ -1,9 +1,10 @@
-import { FC, MouseEvent } from 'react'
+import { MouseEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 import cn from 'classnames'
-import { ColoredCircle, IndicatorColorEnum } from '@/components/colored-circle'
-import { DeleteButton } from '@/components/delete-button'
+import { ColoredCircle, IndicatorColorEnum } from '@/shared/colored-circle'
+import { DeleteButton } from '@/shared/delete-button'
 import { useUserStore } from '@/store/use-user-store'
+
 import styles from './project-item.module.scss'
 
 export type TProjectItem = {
@@ -12,7 +13,8 @@ export type TProjectItem = {
   active?: boolean
   indicatorColor?: IndicatorColorEnum
 }
-export const ProjectItem: FC<TProjectItem> = ({ id, name, active, indicatorColor }) => {
+
+export const ProjectItem = ({ id, name, active, indicatorColor }: TProjectItem) => {
   const deleteProject = useUserStore((state) => state.deleteProject)
   const navigate = useNavigate()
 
@@ -28,9 +30,7 @@ export const ProjectItem: FC<TProjectItem> = ({ id, name, active, indicatorColor
         <ColoredCircle indicatorColor={indicatorColor} />
       </div>
       <div className={styles.name}>{name}</div>
-      <button className={styles.deleteIcon} type="button" onClick={onDeleteClick}>
-        <DeleteButton />
-      </button>
+      <DeleteButton className={styles.deleteIcon} onClick={onDeleteClick} />
     </div>
   )
 }

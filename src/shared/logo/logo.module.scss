@@ -1,4 +1,4 @@
-@use '@/common-styles/_colors.scss' as *;
+@use '@/app/styles/_variables.scss' as *;
 
 .root {
   display: flex;
@@ -14,7 +14,7 @@
       border-radius: 50%;
     }
 
-    .leftCircle {
+    .left-circle {
       position: absolute;
       left: -4px;
       top: 8px;
@@ -22,7 +22,7 @@
       z-index: -1;
     }
 
-    .rightCircle {
+    .right-circle {
       position: absolute;
       top: 8px;
       left: 4px;

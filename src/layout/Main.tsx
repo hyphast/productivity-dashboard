@@ -1,10 +1,11 @@
-import { FC, useState } from 'react'
+import { useState } from 'react'
 import cn from 'classnames'
 import { Header, NavBar, Content, TopInfo } from '../components'
+
 import styles from './main.module.scss'
 
-export const Main: FC = () => {
-  const [navbarVisible, setNavbarVisible] = useState(true)
+export const Main = () => {
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true)
 
   return (
     <div className={styles.root}>
@@ -13,10 +14,10 @@ export const Main: FC = () => {
       </div>
       <div
         className={cn(styles.navbar, {
-          [styles.navbarNotVisible]: !navbarVisible,
+          [styles.navbarNotVisible]: !isNavbarVisible,
         })}
       >
-        <TopInfo setNavbarVisible={setNavbarVisible} navbarVisible={navbarVisible} />
+        <TopInfo onToggleNavbar={() => setIsNavbarVisible((prev) => !prev)} isNavbarVisible={isNavbarVisible} />
         <NavBar />
       </div>
       <div className={styles.content}>

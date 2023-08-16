@@ -1,6 +1,6 @@
-import { FC, MouseEvent } from 'react'
+import { MouseEvent } from 'react'
 import { useDrop } from 'react-dnd'
-import { ColoredCircle, IndicatorColorEnum } from '@/components/colored-circle'
+import { ColoredCircle, IndicatorColorEnum } from '@/shared/colored-circle'
 import AddIcon from '@/assets/images/icons/add.svg'
 import { Modal } from '@/shared/modal'
 import { useModal } from '@/hooks/use-modal'
@@ -27,16 +27,17 @@ const stageTitles = [
     name: 'Done',
   },
 ]
-export type TTodoItem = {
+
+export type TodoItemProps = {
   stage: StageEnum
   indicatorColor: IndicatorColorEnum
   taskData: TTaskData[]
   loading: boolean
 }
-export const TodoItem: FC<TTodoItem> = ({ stage, indicatorColor, taskData, loading }) => {
+
+export const TodoItem = ({ stage, indicatorColor, taskData, loading }: TodoItemProps) => {
   const dropArgs = useDropArgs(stage, taskData)
   const [{ isOver, canDrop }, drop] = useDrop(dropArgs, [stage, taskData])
-
   const { isOpen, setIsOpen, handleClose } = useModal(false)
 
   const stageName = stageTitles.find((item) => item.id === stage)

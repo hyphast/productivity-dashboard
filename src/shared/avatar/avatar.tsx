@@ -1,22 +1,22 @@
-import { FC } from 'react'
 import cn from 'classnames'
 
 import { AvatarLoader } from '@/components/loaders/avatar-loader'
 import { useUserData } from './use-user-data'
-import './avatar.scss'
+
+import styles from './avatar.module.scss'
 
 type AvatarProps = {
   userId: string
   className?: string
 }
 
-export const Avatar: FC<AvatarProps> = ({ userId, className }) => {
+export const Avatar = ({ userId, className }: AvatarProps) => {
   const [name, avatar, loading] = useUserData(userId)
 
   return (
-    <div className={cn('avatar', className)}>
-      {loading ? <AvatarLoader /> : <img src={avatar} alt="avatar" className="avatar__image" />}
-      <div className="avatar__name">{name}</div>
+    <div className={cn(styles.avatar, className)}>
+      {loading ? <AvatarLoader /> : <img className={styles.avatarImage} src={avatar} alt="avatar" />}
+      <div className={styles.avatarName}>{name}</div>
     </div>
   )
 }

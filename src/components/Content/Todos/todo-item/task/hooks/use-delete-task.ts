@@ -4,6 +4,7 @@ import { ref, set } from 'firebase/database'
 import { db } from '@/firebase'
 
 type UseDeleteTaskReturn = [(event: MouseEvent<HTMLButtonElement>) => void, string | undefined]
+
 export const useDeleteTask = (id: number): UseDeleteTaskReturn => {
   const { id: projectId } = useParams()
   const [error, setError] = useState<string | undefined>(undefined)

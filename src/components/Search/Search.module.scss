@@ -2,7 +2,7 @@
   position: relative;
   width: fit-content;
 
-  .findIcon {
+  .find-icon {
     svg {
       position: absolute;
       top: 10px;
@@ -10,7 +10,7 @@
     }
   }
 
-  .clearIcon {
+  .clear-icon {
     svg {
       cursor: pointer;
       position: absolute;
@@ -18,7 +18,7 @@
       height: 20px;
       top: 11px;
       right: 10px;
-      opacity: 50%;
+      opacity: 0.5;
 
       &:hover {
         fill: red;

@@ -1,13 +1,14 @@
-import { FC, MouseEvent } from 'react'
+import { MouseEvent } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import PlusIcon from '@/assets/images/icons/plus.svg'
 import { useUserStore } from '@/store/use-user-store'
 import { ProjectItem } from './project-item'
 import { useProjectDatabase } from './use-project-database'
 import { Loader } from '../loaders/loader/loader'
+
 import styles from './navbar.module.scss'
 
-export const NavBar: FC = () => {
+export const NavBar = () => {
   const { id } = useParams()
   const navigate = useNavigate()
   const projects = useUserStore((state) => state.projects)
@@ -42,9 +43,10 @@ export const NavBar: FC = () => {
         <ul>
           {projects.map((project, index) => (
             <li key={project.id}>
-              <button
+              <span
                 className={styles.projectBtn}
-                type="button"
+                role="button"
+                tabIndex={0}
                 onClick={(event: MouseEvent<HTMLButtonElement>) => onProjectClick(event, index, project.id)}
               >
                 <ProjectItem
@@ -53,7 +55,7 @@ export const NavBar: FC = () => {
                   indicatorColor={project.indicator}
                   active={id === project.id}
                 />
-              </button>
+              </span>
             </li>
           ))}
         </ul>
