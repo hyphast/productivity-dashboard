@@ -3,8 +3,12 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { useMediaQuery } from 'react-responsive'
 import { Main } from '@/layout/main'
 import { useModal } from '@/hooks/use-modal'
-import { Content, Modal, NewUser, ProjectNotChosen, ProjectNotFound } from '@/components'
 import { ConditionalRender } from '@/shared/conditional-render'
+import { ProjectNotChosen } from '@/shared/project-result/project-not-chosen'
+import { ProjectNotFound } from '@/shared/project-result/project-not-found'
+import { Modal } from '@/shared/modal'
+import { NewUser } from '@/widgets/modal-forms/new-user'
+import { Content } from '@/widgets/content'
 
 import './app.scss'
 
@@ -27,7 +31,7 @@ export const App = () => {
   return (
     <>
       <ConditionalRender conditions={[isTabletOrMobile]}>
-        <h2 className="notSupported">Не поддерживается на мобильных устройствах</h2>
+        <h2 className="not-supported">Не поддерживается на мобильных устройствах</h2>
       </ConditionalRender>
       <ConditionalRender conditions={[!isTabletOrMobile]}>
         <div className="delimiters" />

@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import cn from 'classnames'
-import { Header, NavBar, Content, TopInfo } from '../components'
+import { Header } from '@/widgets/header'
+import { TopInfo } from '@/widgets/top-info'
+import { NavBar } from '@/widgets/navbar'
+import { Content } from '@/widgets/content'
 
 import styles from './main.module.scss'
 

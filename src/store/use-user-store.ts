@@ -2,31 +2,6 @@ import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
 import { produce } from 'immer'
 import { IndicatorColorEnum } from '@/shared/colored-circle'
-import avatar0 from '@/assets/images/avatars/ava0.png'
-import avatar2 from '@/assets/images/avatars/ava2.jpg'
-import avatar1 from '@/assets/images/avatars/ava1.jpg'
-import avatar3 from '@/assets/images/avatars/ava3.jpg'
-import avatar4 from '@/assets/images/avatars/ava4.png'
-import avatar5 from '@/assets/images/avatars/ava5.png'
-import avatar6 from '@/assets/images/avatars/ava6.png'
-import avatar7 from '@/assets/images/avatars/ava7.png'
-import avatar8 from '@/assets/images/avatars/ava8.png'
-import avatar9 from '@/assets/images/avatars/ava9.png'
-import avatar10 from '@/assets/images/avatars/ava10.png'
-
-export const avatars = [
-  avatar0,
-  avatar1,
-  avatar2,
-  avatar3,
-  avatar4,
-  avatar5,
-  avatar6,
-  avatar7,
-  avatar8,
-  avatar9,
-  avatar10,
-]
 
 function randIndicator() {
   const enumValues = Object.values(IndicatorColorEnum)
@@ -45,11 +20,11 @@ type Project = {
   name: string
 }
 interface IUserState {
-  user: { id: string; avatar: number; name: string }
+  user: { id: string; name: string }
   projects: Project[]
   search: string
   setSearch: (search: string) => void
-  setUser: (id: string, name: string, avatarIdx: number) => void
+  setUser: (id: string, name: string) => void
   addProject: (id: string, name: string) => void
   deleteProject: (id: string) => void
   renameProject: (id: string, name: string) => void
@@ -61,12 +36,11 @@ export const useUserStore = create<IUserState>()(
       (set, get) => ({
         user: {
           id: '',
-          avatar: 0,
           name: '',
         },
         projects: [],
         search: '',
-        setUser: (id: string, name: string, idx: number) => set({ user: { id, name, avatar: idx } }),
+        setUser: (id: string, name: string) => set({ user: { id, name } }),
         setSearch: (search: string) => set({ search }),
         renameProject: (id: string, name: string) => {
           const projectExistId = findProjectId(get().projects, id)

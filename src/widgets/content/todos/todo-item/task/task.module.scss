@@ -1,0 +1,103 @@
+.root {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  cursor: grab;
+
+  .task-header {
+    display: flex;
+    position: relative;
+    margin-bottom: 9px;
+
+    .priority {
+      border-radius: 5px;
+      padding: 5px;
+
+      span {
+        font-weight: 500;
+        font-size: 12px;
+      }
+    }
+
+    .low {
+      background: rgb(223 168 116 / 20%);
+
+      span {
+        color: #d58d49;
+      }
+    }
+
+    .high {
+      background: rgb(216 114 125 / 10%);
+
+      span {
+        color: #d8727d;
+      }
+    }
+
+    .completed {
+      background: rgb(131 194 157 / 20%);
+
+      span {
+        color: #68b266;
+      }
+    }
+
+    .delete-btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  .task-main {
+    h5 {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 22px;
+      margin-bottom: 5px;
+    }
+
+    .date {
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 15px;
+      color: rgb(0 0 0 / 70%);
+      margin-bottom: 7px;
+    }
+
+    .desc {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 15px;
+      color: #787486;
+      margin-bottom: 10px;
+    }
+  }
+
+  .task-footer {
+    .owner-avatar {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+
+      :global(.avatar-image) {
+        width: 24px;
+        height: 24px;
+        margin-right: 5px;
+      }
+
+      :global(.avatar-name) {
+        width: 150px;
+        text-align: start;
+        position: relative;
+        top: -4px;
+      }
+    }
+  }
+}
+
+.dragging {
+  opacity: 0.5;
+}
