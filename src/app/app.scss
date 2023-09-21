@@ -1,0 +1,32 @@
+@use './styles/_normalize.scss';
+@use './styles/_variables.scss' as *;
+
+html {
+  height: 100vh;
+}
+
+body {
+  background-color: $background;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.wrapper {
+  width: calc(100vw - 50px);
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.delimiters {
+  z-index: -100;
+  position: absolute;
+  border-bottom: 1px solid #dbdbdb;
+  width: 100%;
+  height: 88px;
+}
+
+.not-supported {
+  text-align: center;
+  padding: 150px 20px;
+  font-size: responsive 18px 32px;
+}

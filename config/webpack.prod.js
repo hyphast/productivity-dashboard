@@ -39,6 +39,7 @@ module.exports = merge(commonConfig, {
                 auto: /\.module\.\w+$/i,
                 exportGlobals: true,
                 localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                exportLocalsConvention: 'camelCase',
                 localIdentContext: paths.src,
               },
             },

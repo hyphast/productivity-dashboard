@@ -14,6 +14,9 @@ module.exports = merge(commonConfig, {
     compress: true,
     hot: true,
   },
+  optimization: {
+    sideEffects: true,
+  },
   module: {
     rules: [
       {
@@ -28,8 +31,9 @@ module.exports = merge(commonConfig, {
               modules: {
                 auto: /\.module\.\w+$/i,
                 exportGlobals: true,
-                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                localIdentName: '[local]--[hash:base64:5]',
                 localIdentContext: paths.src,
+                exportLocalsConvention: 'camelCase',
               },
             },
           },

@@ -7,7 +7,13 @@
   "globals": {
     "window": true
   },
-  "extends": ["plugin:react/recommended", "airbnb", "airbnb-typescript", "plugin:prettier/recommended"],
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "airbnb-typescript",
+    "plugin:prettier/recommended",
+    "plugin:storybook/recommended"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -19,29 +25,57 @@
   },
   "settings": {
     "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx"]
+      "@typescript-eslint/parser": [
+        ".ts",
+        ".tsx"
+      ]
     },
     "import/resolver": {
       "alias": {
-        "map": [["@", "./src"]],
-        "extensions": [".ts", ".tsx", ".js", ".json"]
+        "map": [
+          [
+            "@",
+            "./src"
+          ]
+        ],
+        "extensions": [
+          ".ts",
+          ".tsx",
+          ".js",
+          ".json"
+        ]
       }
     }
   },
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": [
+    "react",
+    "@typescript-eslint"
+  ],
   "rules": {
     "semi": "off",
     "react/prop-types": "off",
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [".tsx"]
+        "extensions": [
+          ".tsx"
+        ]
       }
     ],
-    "react/function-component-definition": ["error", { "namedComponents": "arrow-function" }],
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": "arrow-function"
+      }
+    ],
     "react/jsx-props-no-spreading": "warn",
     "react/no-array-index-key": "warn",
-    "react/jsx-no-useless-fragment": ["error", { "allowExpressions": true }],
+    "react/jsx-no-useless-fragment": [
+      "error",
+      {
+        "allowExpressions": true
+      }
+    ],
     "react/react-in-jsx-scope": "off",
     "jsx-a11y/no-noninteractive-element-interactions": "warn",
     "jsx-a11y/click-events-have-key-events": "warn",
@@ -49,7 +83,14 @@
     "jsx-a11y/no-static-element-interactions": [
       "error",
       {
-        "handlers": ["onClick", "onMouseDown", "onMouseUp", "onKeyPress", "onKeyDown", "onKeyUp"],
+        "handlers": [
+          "onClick",
+          "onMouseDown",
+          "onMouseUp",
+          "onKeyPress",
+          "onKeyDown",
+          "onKeyUp"
+        ],
         "allowExpressionValues": true
       }
     ],
@@ -66,7 +107,11 @@
     "import/prefer-default-export": "off",
     "import/no-extraneous-dependencies": [
       "error",
-      { "devDependencies": false, "optionalDependencies": false, "peerDependencies": false }
+      {
+        "devDependencies": false,
+        "optionalDependencies": false,
+        "peerDependencies": false
+      }
     ],
     "consistent-return": "warn"
   }

@@ -1,0 +1,39 @@
+.root {
+  display: flex;
+
+  @mixin title-styles() {
+    font-weight: 600;
+    font-size: 46px;
+    line-height: 56px;
+    max-width: 550px;
+  }
+
+  .title-input {
+    border: none;
+
+    @include title-styles;
+  }
+
+  .title {
+    display: flex;
+
+    h1 {
+      @include title-styles;
+
+      width: fit-content;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  }
+
+  .icons-container {
+    cursor: pointer;
+    margin: 15px 0 0 22px;
+    transition: all 0.1s ease-in-out;
+
+    svg:hover {
+      transform: scale(1.1);
+    }
+  }
+}

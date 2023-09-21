@@ -1,0 +1,19 @@
+.root {
+  opacity: 0.7;
+  width: 20px;
+  height: 20px;
+
+  svg {
+    cursor: pointer;
+
+    &:hover {
+      path {
+        stroke: red;
+      }
+
+      line {
+        stroke: red;
+      }
+    }
+  }
+}

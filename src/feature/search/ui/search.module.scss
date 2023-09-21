@@ -1,0 +1,32 @@
+.root {
+  position: relative;
+  width: fit-content;
+
+  .find-icon {
+    svg {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+  }
+
+  .clear-icon {
+    svg {
+      cursor: pointer;
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: 11px;
+      right: 10px;
+      opacity: 0.5;
+
+      &:hover {
+        fill: red;
+      }
+    }
+  }
+
+  input {
+    padding: 11px 36px 11px 56px;
+  }
+}
