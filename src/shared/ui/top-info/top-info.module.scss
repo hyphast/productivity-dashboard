@@ -1,0 +1,74 @@
+@use '@/app/styles/_variables.scss' as *;
+
+.root {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr;
+  height: 88px;
+  padding: 20px 0 44px;
+
+  .logo-container {
+    display: flex;
+
+    .logo {
+      position: relative;
+      margin-right: 13px;
+
+      .circle {
+        width: 12px;
+        height: 12px;
+        background-color: $purple;
+        border-radius: 50%;
+      }
+
+      .left-circle {
+        position: absolute;
+        left: -4px;
+        top: 8px;
+        background-color: #9683ef;
+        z-index: -1;
+      }
+
+      .right-circle {
+        position: absolute;
+        top: 8px;
+        left: 4px;
+        background-color: #b9acf5;
+        z-index: -2;
+      }
+    }
+
+    .title {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 24px;
+    }
+  }
+
+  .collapse {
+    display: flex;
+    position: relative;
+    align-self: center;
+    justify-self: center;
+    cursor: pointer;
+
+    .arrow {
+      width: 10px;
+      height: 10px;
+      border: 2px solid $secondary;
+      border-right: 0;
+      border-top: 0;
+      transform: rotate(45deg);
+    }
+
+    .second-arrow {
+      position: absolute;
+      left: 6px;
+    }
+  }
+
+  .expand {
+    transform: rotate(180deg);
+    left: 75px;
+  }
+}

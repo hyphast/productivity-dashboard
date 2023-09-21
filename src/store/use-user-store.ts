@@ -1,88 +1,107 @@
-import { create } from 'zustand'
+import { StateCreator, create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
 import { produce } from 'immer'
-import { IndicatorColorEnum } from '@/shared/colored-circle'
+import { DotColors } from '@/shared/ui/colored-dot'
 
-function randIndicator() {
-  const enumValues = Object.values(IndicatorColorEnum)
+const randomIndicator = () => {
+  const enumValues = Object.values(DotColors)
   const index = Math.floor(Math.random() * enumValues.length)
 
   return enumValues[index]
 }
 
-function findProjectId(projects: Project[], id: string) {
-  return projects.findIndex((item) => item.id === id)
-}
+const findProjectId = (projects: Project[], id: string) => projects.findIndex((item) => item.id === id)
 
 type Project = {
   id: string
-  indicator: IndicatorColorEnum
+  indicator: DotColors
   name: string
 }
-interface IUserState {
-  user: { id: string; name: string }
-  projects: Project[]
-  search: string
-  setSearch: (search: string) => void
+
+type UserState = {
+  user: {
+    id: string
+    name: string
+  }
   setUser: (id: string, name: string) => void
+}
+
+type ProjectState = {
+  projects: Project[]
   addProject: (id: string, name: string) => void
   deleteProject: (id: string) => void
   renameProject: (id: string, name: string) => void
 }
 
-export const useUserStore = create<IUserState>()(
-  devtools(
-    persist(
-      (set, get) => ({
-        user: {
-          id: '',
-          name: '',
-        },
-        projects: [],
-        search: '',
-        setUser: (id: string, name: string) => set({ user: { id, name } }),
-        setSearch: (search: string) => set({ search }),
-        renameProject: (id: string, name: string) => {
-          const projectExistId = findProjectId(get().projects, id)
+type SearchState = {
+  search: string
+  setSearch: (search: string) => void
+}
 
-          if (projectExistId > -1) {
-            set(
-              produce<IUserState>((state) => {
-                // eslint-disable-next-line no-param-reassign
-                state.projects[projectExistId].name = name
-              }),
-            )
-          }
-        },
-        addProject: (id: string, name: string) => {
-          const projectExistId = findProjectId(get().projects, id)
-          if (projectExistId > -1) {
-            set(
-              produce<IUserState>((state) => {
-                // eslint-disable-next-line no-param-reassign
-                state.projects[projectExistId].name = name
-              }),
-            )
-          } else {
-            set(
-              produce<IUserState>((state) => {
-                state.projects.push({
-                  id,
-                  name,
-                  indicator: randIndicator(),
-                })
-              }),
-            )
-          }
-        },
-        deleteProject: (id: string) =>
-          set((state) => ({
-            projects: state.projects.filter((item: Project) => item.id !== id),
-          })),
-      }),
-      {
-        name: 'user-storage',
-      },
-    ),
-  ),
+const middlewares = <T>(state: StateCreator<T>) =>
+  devtools(
+    persist(state, {
+      name: 'user-storage',
+    }),
+  )
+
+export const useUserStore = create<UserState>()(
+  middlewares((set) => ({
+    user: {
+      id: '',
+      name: '',
+    },
+    setUser: (id: string, name: string) => set({ user: { id, name } }),
+  })),
+)
+
+export const useProjectStore = create<ProjectState>()(
+  middlewares((set, get) => ({
+    projects: [],
+    renameProject: (id: string, name: string) => {
+      const projectExistId = findProjectId(get().projects, id)
+
+      if (projectExistId > -1) {
+        set(
+          produce<ProjectState>((state) => {
+            // eslint-disable-next-line no-param-reassign
+            state.projects[projectExistId].name = name
+          }),
+        )
+      }
+    },
+    addProject: (id: string, name: string) => {
+      const projectExistId = findProjectId(get().projects, id)
+
+      if (projectExistId > -1) {
+        set(
+          produce<ProjectState>((state) => {
+            // eslint-disable-next-line no-param-reassign
+            state.projects[projectExistId].name = name
+          }),
+        )
+      } else {
+        set(
+          produce<ProjectState>((state) => {
+            state.projects.push({
+              id,
+              name,
+              indicator: randomIndicator(),
+            })
+          }),
+        )
+      }
+    },
+    deleteProject: (id: string) =>
+      set((state) => ({
+        projects: state.projects.filter((item: Project) => item.id !== id),
+      })),
+  })),
+)
+
+export const useSearchStore = create<SearchState>()(
+  middlewares((set) => ({
+    search: '',
+    setSearch: (search: string) => set({ search }),
+  })),
 )
